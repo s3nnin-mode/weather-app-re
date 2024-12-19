@@ -7,6 +7,6 @@ export const getClimaActual = async (lat: number, lon: number) => {
     const data = climaActual.data;
     return data;
   } catch(error: any) {
-   console.log(error)
+   console.log(error);
   }
 }
