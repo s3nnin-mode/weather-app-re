@@ -1,0 +1,68 @@
+.contenedor-historial {
+    margin-top: 10px;
+    h3 {
+        color: gray;
+    }
+
+    .mis-ciudades {
+        height: 150px;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+    
+            padding-left: 0;
+            background-color: transparent;
+            color: white;
+            font-style: italic;
+            border-bottom: none;
+            position: relative;
+    
+            div {
+                width: 90%;
+                display: flex;
+                cursor: pointer;
+    
+                i {
+                    color: gray;
+                }
+            }
+    
+            div:hover {
+                color: orange;
+                i {
+                    color: orange;
+                }
+            }
+    
+            .icon-borrar {
+                color: rgb(255, 0, 0, .5);
+                position: relative;
+                cursor: pointer;
+            }
+    
+            .icon-borrar:hover {
+                color: rgb(255, 0, 0);
+            }
+        }
+
+        .msg-sin-historial {
+            transition: 0.5s;
+            height: 100%;
+            align-content: center;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .contenedor-historial {
+        .mis-ciudades {
+            height: auto;
+
+            li {
+                font-size: 14px;
+            }
+        }
+    }
+}

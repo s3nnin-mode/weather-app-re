@@ -1,0 +1,28 @@
+.current-temp-container {
+    display: flex;
+    align-items: center;
+
+    .temp {
+      font-size: 70px;
+      margin: 0;
+      align-content: center;
+    }
+
+    div {
+      font-size: 40px;
+      
+      p {
+        cursor: pointer;
+        background-color: transparent;
+        margin: 0;
+      }
+
+      p:hover {
+        color: orange;
+        transition: .3s;
+        scale: 1.2;
+
+        transform: rotate(-5deg);
+      }
+    }
+  }

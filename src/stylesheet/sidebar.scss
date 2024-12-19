@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.offcanvas {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    width: 300px !important;
+    max-width: 300px !important;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+
+    .offcanvas-body {
+        // min-width: 300px;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+               
+        .btns {
+            // min-width: 300px;
+            height: 100%;
+            overflow-y: auto;
+            padding: 0 10px;
+            scrollbar-width: thin; 
+            scrollbar-color: rgb(17, 17, 17) black;        
+        
+            .btn-login {
+                width: 100%;
+                color: orange;
+        
+                .texto-desabilitado {
+                    font-style: italic;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.btn-dark {
+    max-height: 30%;
+    border: none;
+    color: orange;
+}
+
+.btn-dark:hover {
+    color: white;
+}
+
+@media screen and (max-width: 290px) {
+    .offcanvas {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}

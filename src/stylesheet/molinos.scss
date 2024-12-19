@@ -1,0 +1,86 @@
+.molinos {
+  width: 50%;
+  height: 100%;
+  display: flex;
+
+  .icono-viento {
+    display: none;
+  }
+
+  .molino::before {
+    content: '';
+    height: 40%;
+    display: block;
+  }
+
+  .molino {
+    position: relative;
+    width: 40%;
+    height: 100%;
+
+    .aspa {
+      position: absolute;
+      top: 17%;
+      animation: molino-animacion 4s linear both infinite;
+      img {
+        width: 100%;
+      }
+    }
+
+    .poste {
+      height: 60%;
+      background-image: url('https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .molino-chico::before {
+    content: '';
+    height: 60%;
+    display: block;
+  }
+
+  .molino-chico {
+    position: relative;
+    width: 40%;
+    height: 100%;
+
+    .aspa {
+      position: absolute;
+      top: 39%;
+      text-align: center;
+      animation: molino-animacion 4s linear both infinite;
+
+      img {
+        width: 85%;
+      }
+    }
+
+    .poste {
+      height: 40%;
+      background-image: url('https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .molinos {
+    width: auto;
+    align-self: center;
+    margin-right: 10px;
+
+    .icono-viento {
+      display: block;
+      font-size: 3rem;
+    }
+
+    .molino, .molino-chico, .molino::before, .molino-chico::before {
+      display: none;
+    }
+  }
+}

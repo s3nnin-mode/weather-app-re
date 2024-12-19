@@ -1,0 +1,56 @@
+.localidad-mas-detalles {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(6, 1fr);
+    min-height: 200px;
+    max-width: 50%;
+
+    p {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .localidad {
+      grid-column: 1/5;
+      grid-row: 1/2;
+
+      font-size: 30px;
+    }
+
+    .hora {
+      text-align: right;
+      grid-column: 5/7;
+      grid-row: 1/2;
+      font-size: 30px;
+      text-decoration: underline;
+    }
+
+    .coord {
+      grid-column: 1/4;
+      grid-row: 2/3; 
+    }
+
+    .fecha {
+      text-align: right;
+      grid-column: 4/7;
+      grid-row: 2/3;
+      text-decoration: underline;
+    }
+
+    .descripcion-del-cielo {
+      grid-column: 1/-1;
+      grid-row: 3/4;
+    }
+
+    .detalles {
+      grid-column: 1/-1;
+      grid-row: 4/5;
+      margin-top: 2px;
+      display: flex;
+      gap: 8px;
+
+      span {
+        margin-left: 3px;
+      }
+    }
+  }
