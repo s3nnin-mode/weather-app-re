@@ -17,7 +17,6 @@ export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) =
   const esConfig = paraActualizarLocalidad?.esConfig;
   const retornarUbicacion = paraActualizarLocalidad?.retornarUbicacion
 
-  const buscador = useRef<HTMLDivElement | null>(null);
   const [iconResponsiveClicked, setIconResponseClicked] = useState(false);
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {

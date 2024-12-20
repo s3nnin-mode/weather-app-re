@@ -1,31 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import '../stylesheet/localidadactual.scss';
 import { actualizarDataApp } from "../utils/estados";
-import { useAppDispatch } from "../hooks";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { ciudadesGuardadasProps } from "../interfacez&types/ciudadGuardada";
+import { ubicacionData } from "../states/weather";
 
 interface Props {
-  localidad: ciudadesGuardadasProps;
   ocuparEspacio: () => void;
   hayUnaInterfazAbierta: boolean;
 }
 
-export const LocalidadActual: React.FC<Props> = ({localidad, hayUnaInterfazAbierta, ocuparEspacio}) => {
+export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparEspacio}) => {
   const dispatch = useAppDispatch();
-  const { name, state, country, lat, lon } = localidad;
-  // const [milLocalidad, setMiLocalidad] = useState()
-  // const { name } = milLocalidad
-
-  // useEffect(() => {
-  //   if (localidad) {
-  //     setMiLocalidad(milLocalidad)
-  //   } else {
-  //     const localidadGuardada = localStorage.getItem('miLocalidad');
-  //     if (localidadGuardada) {
-  //       setMiLocalidad(JSON.parse(localidadGuardada))
-  //     }
-  //   }
-  // })
+  const ubicacion = useAppSelector(ubicacionData);
+  const { name, state, country, lat, lon } = ubicacion;
 
   return (
     <div className='info-localidad-actual-contenedor'>

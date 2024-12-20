@@ -70,7 +70,6 @@ export const WeatherApp = () => {
       const coordenadasPorDefecto = { lat: 19.4326, lon: -99.1332 };
       actualizarDataApp(coordenadasPorDefecto.lat, coordenadasPorDefecto.lon, dispatch);
       localStorage.setItem('miLocalidad', JSON.stringify(coordenadasPorDefecto))
-      console.log('coord no llegaron')
     }
     
   }

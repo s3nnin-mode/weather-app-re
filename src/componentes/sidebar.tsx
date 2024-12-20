@@ -25,22 +25,6 @@ const useLocalidadActual = () => {
     setLocalidad(nuevaLocalidad);
   }
 
-  useEffect(() => {
-    const miUbicacion = async () => {
-      const coordsGuardadas = localStorage.getItem('miLocalidad');
-      let coordenadas;
-      if (coordsGuardadas) {
-      coordenadas = JSON.parse(coordsGuardadas)
-      }
-
-      if (coordenadas) {
-        const data = await getUbicacion(coordenadas.lat, coordenadas.lon);
-        if (data) setLocalidad(data);
-      }   
-    }
-    miUbicacion();    
-  }, []);
-
   const metodos = {
     paraActualizarLocalidad: {
       esConfig: true,
@@ -53,7 +37,6 @@ const useLocalidadActual = () => {
 
 const useInterfaces = () => {
   const [hayUnaInterfazAbierta, setHayUnaInterfazAbierta] = useState(false);
-  const [btnClickeado, setBtnClickeado] = useState('');
 
   const ocuparEspacio = () => {
     setHayUnaInterfazAbierta(true);
@@ -66,8 +49,7 @@ const useInterfaces = () => {
 }
 
 export const Sidebar = () => {
-  const { localidad, metodos } = useLocalidadActual();
-  const { name, state, country, lat, lon } = localidad;
+  const { metodos } = useLocalidadActual();
   const { ocuparEspacio, liberarEspacio, hayUnaInterfazAbierta } = useInterfaces();
 
   return (
@@ -86,7 +68,7 @@ export const Sidebar = () => {
           </button>
 
           <CartaInfoUnidadActual ocuparEspacio={ocuparEspacio} hayUnaInterfazAbierta={hayUnaInterfazAbierta}/>
-          <LocalidadActual localidad={localidad} ocuparEspacio={ocuparEspacio} hayUnaInterfazAbierta={hayUnaInterfazAbierta} />
+          <LocalidadActual ocuparEspacio={ocuparEspacio} hayUnaInterfazAbierta={hayUnaInterfazAbierta} />
           <CiudadesVisitadas />
         </div>
           <InterfazCambiarUnidad liberarEspacio={liberarEspacio}/>
