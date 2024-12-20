@@ -13,6 +13,12 @@ import { Alerta } from './alert';
 import { Sidebar } from './sidebar';
 import { actualizarDataApp } from '../utils/estados';
 import { BtnAbrirSidebar } from './btnAbrirSidebar';
+import { resolve } from 'path';
+
+interface coordenadas {
+  lat: number;
+  lon: number;
+}
 
 export const WeatherApp = () => {
   const dispatch = useAppDispatch();
@@ -26,14 +32,19 @@ export const WeatherApp = () => {
     }
   }
 
-  const solicitarLocalizacion = () => {
-    let coordenadas;
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(async function(position) {
-        coordenadas = { lat: position.coords.latitude, lon: position.coords.longitude };
-      });
+  const solicitarLocalizacion = async (): Promise<coordenadas | null> => {
+    if (navigator.geolocation) {
+      return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(position => {
+          const coordenadas: coordenadas = { lat: position.coords.latitude, lon: position.coords.longitude }
+          resolve(coordenadas)
+        }, (error) => {
+          reject(null);
+        })
+      })
+    } else {
+      return null
     }
-    return coordenadas;
   }
 
   const iniciarApp = async () => {
@@ -44,16 +55,24 @@ export const WeatherApp = () => {
       return;
     }
 
-    const geolocalizacion = solicitarLocalizacion();
+    try {
+      const geolocalizacion = await solicitarLocalizacion();
+    console.log(geolocalizacion)
     if (geolocalizacion) {
       const { lat, lon } = geolocalizacion;
       actualizarDataApp(lat, lon, dispatch)
       localStorage.setItem('miLocalidad', JSON.stringify(geolocalizacion));
+      console.log('coord del permiso llegó: ', lat, lon)
     } else {
+      throw new Error('no se obtuvo geolocalizacion')
+    }
+    } catch(error) {
       const coordenadasPorDefecto = { lat: 19.4326, lon: -99.1332 };
       actualizarDataApp(coordenadasPorDefecto.lat, coordenadasPorDefecto.lon, dispatch);
       localStorage.setItem('miLocalidad', JSON.stringify(coordenadasPorDefecto))
+      console.log('coord no llegaron')
     }
+    
   }
 
   useEffect(() => {
@@ -61,7 +80,7 @@ export const WeatherApp = () => {
   }, []);
 
   return (
-    <div className='App'>
+    <div className='App container-fluid'>
       <section className='encabezados'>
         <div className='primer-encabezado'>
           <Sidebar />
