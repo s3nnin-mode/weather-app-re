@@ -9,21 +9,17 @@
     color: white;
     width: 300px !important;
     max-width: 300px !important;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
 
     .offcanvas-body {
-        // min-width: 300px;
         display: flex;
         justify-content: center;
         padding: 0;
                
         .btns {
-            // min-width: 300px;
+            width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding: 0 10px;
+            padding: 0 12px;
             scrollbar-width: thin; 
             scrollbar-color: rgb(17, 17, 17) black;        
         
