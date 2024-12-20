@@ -1,28 +1,41 @@
 .current-temp-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    .temp {
-      font-size: 70px;
+  .temp {
+    font-size: 70px;
+    margin: 0;
+    align-content: center;
+  }
+
+  div {
+    font-size: 40px;
+    
+    p {
+      cursor: pointer;
+      background-color: transparent;
       margin: 0;
-      align-content: center;
+      font-size: 45px;
     }
 
-    div {
-      font-size: 40px;
-      
-      p {
-        cursor: pointer;
-        background-color: transparent;
-        margin: 0;
-      }
+    p:hover {
+      color: orange;
+      transition: .3s;
+      scale: 1.2;
 
-      p:hover {
-        color: orange;
-        transition: .3s;
-        scale: 1.2;
-
-        transform: rotate(-5deg);
-      }
+      transform: rotate(-5deg);
     }
   }
+}
+
+.texto-con-css {
+  color: rgb(255, 165, 0, .9);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.texto-sin-css {
+  transition: 0.5s;
+  opacity: 0.3;
+  font-size: 16px;
+}

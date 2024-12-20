@@ -11,17 +11,24 @@ export const Temperatura = () => {
 
   const dispatch = useAppDispatch();
 
+  const claseParaUnidadActual = (unidadCorrespondiente: string) => {
+    if (unidad === unidadCorrespondiente) {
+      return 'texto-con-css'
+    }
+    return 'texto-sin-css'
+  }
+
   return (
     <div className='current-temp-container'>
       <p className='temp font-google-delgada'>{temp ? conversor(unidad, temp) : '..'}°</p>
       <div className='font-google'>
         <p 
-        style={{opacity: unidad === 'celcius' ? 1 : 0.3 } }
+        className={claseParaUnidadActual('celcius')}
         onClick={() => dispatch(setUnidad('celcius'))}>
           C
         </p>
         <p 
-        style={{opacity: unidad === 'farenheit' ? 1 : 0.3 } } 
+        className={claseParaUnidadActual('farenheit')} 
         onClick={() => dispatch(setUnidad('farenheit'))}>
           F
         </p>

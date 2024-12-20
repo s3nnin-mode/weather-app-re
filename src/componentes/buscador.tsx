@@ -31,17 +31,6 @@ export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) =
     setError(sugerenciasData.length === 0);
   }
 
-  const handleClickResponsive = () => {
-    setIconResponseClicked(true)
-    const div = buscador.current
-
-    if(iconResponsiveClicked && div) {
-      div.style.display= 'block'
-    } else if (!iconResponsiveClicked && div) {
-      div.style.display= 'none'
-    }
-  }
-
   const componentes = sugerencias.map(obj => {
     const { name, state, country, lat, lon } = obj;
     return <LocalidadLi 
@@ -61,6 +50,7 @@ export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) =
   }, []);
 
   const haySugerencias = sugerencias.length > 0;
+  // style={{color: haySugerencias ? 'gray' : 'orange', opacity: haySugerencias ? 1 : .9}}
 
   return (
     <div id='referencia'>
@@ -71,8 +61,8 @@ export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) =
       }>
         <h2 className='font-google'>Busca y selecciona tu nueva localidad: </h2>
         <div className='input-contenedor'>
-          <i className='bi bi-search lupa' style={{color: haySugerencias ? 'gray' : 'orange', opacity: haySugerencias ? 1 : .9}}/>
-          <input className='font-google-delgada input-buscador-inactivo' onChange={(e) => handleChange(e)} placeholder='busca la ciudad que quieras aqui...' aria-label='Buscar ciudad'/>
+          <i className='bi bi-search lupa' />
+          <input className='font-google-delgada input-buscador-inactivo' onChange={(e) => handleChange(e)} placeholder='buscar ciudad...' aria-label='Buscar ciudad'/>
         </div>
         <ul className='list-group list-group-flush'>
         { componentes }
