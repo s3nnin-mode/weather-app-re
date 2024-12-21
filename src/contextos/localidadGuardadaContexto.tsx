@@ -36,6 +36,7 @@ export const LocalidadGuardada: React.FC<PropsWithChildren<{}>> = ({children}) =
           const coordenadas: coordenadas = { lat: position.coords.latitude, lon: position.coords.longitude }
           resolve(coordenadas)
         }, (error) => {
+          console.log(error)
           reject(null);
         })
       })
@@ -64,7 +65,6 @@ export const LocalidadGuardada: React.FC<PropsWithChildren<{}>> = ({children}) =
         throw new Error('no se obtuvo geolocalizacion')
       }
     } catch(error) {
-      // const coordenadasPorDefecto = { lat: 19.4326, lon: -99.1332 };
       actualizarDataApp(miLocalidad.lat, miLocalidad.lon, dispatch);
       localStorage.setItem('miLocalidad', JSON.stringify(miLocalidad));
     }

@@ -2,7 +2,6 @@ import { useAppDispatch } from "../hooks"
 import { PropsLocalidadLi } from "../interfacez&types/localidadLi";
 import { useHistorialContext } from "./misciudades";
 import { actualizarDataApp } from "../utils/estados";
-import { useLocalidadGuardada } from "./localidadActual";
 import { useContext } from "react";
 import { MiLocalidadContexto } from "../contextos/localidadGuardadaContexto";
 

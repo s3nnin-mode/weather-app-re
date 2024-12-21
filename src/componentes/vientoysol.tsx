@@ -4,15 +4,15 @@ import { weatherData } from "../states/weather";
 import '../stylesheet/vientoysol.scss';
 import { SunChart } from "./graficadelsol";
 
+export const convertirMsAKm = (viento: number) => {
+  return Math.floor(viento * 3.6);
+}
+
 export const VientoYSol = () => {
     const weather = useAppSelector(weatherData);
     const { sunrise, sunset} = weather.sys;
     const velocidadDelViento = weather.wind.speed;
     const direccionDelViento = weather.wind.deg;
-
-    const convertirMsAKm = () => {
-        return Math.floor(velocidadDelViento * 3.6);
-    }
 
     return (
         <div className='viento-y-sol'>
@@ -21,7 +21,7 @@ export const VientoYSol = () => {
             <div className='detalles-del-viento'>
               <div>
                 <p className='descripcion font-google'>Velocidad del viento:</p>
-                <p className='font-google-delgada'>{convertirMsAKm()}K/H</p>
+                <p className='font-google-delgada'>{convertirMsAKm(velocidadDelViento)}K/H</p>
               </div>
               <div>
                 <p className='descripcion font-google'>Direccion del viento:</p>

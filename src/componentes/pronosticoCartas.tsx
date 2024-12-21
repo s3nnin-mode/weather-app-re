@@ -4,6 +4,7 @@ import { datosDeLaGrafica, pronosticoParaCincoDias } from "../states/pronostico"
 import { CartaInfo } from "./carta"
 import { CustomChart } from "./grafica";
 import { diaLegible } from "../utils/diaLegibleUtils";
+import { CartaConDetalles } from "./cartaConDetallesPronostico";
 
 export const Pronostico = () => {
   const pronosticos = useAppSelector(pronosticoParaCincoDias);
@@ -30,15 +31,19 @@ export const Pronostico = () => {
   return (
     <div className='cartas-y-grafica'>
       <div className="contenedor-cartas">
-        <h2 className='descripcion'>Pronostico:</h2>
+        <h4 className='descripcion'>Pronostico para cinco dias:</h4>
         <div className='cartas'>
           {cartas}
         </div>
       </div>
+
+      <h5>{textFechaGrafica}</h5>
+
+      <CartaConDetalles />
+
       <div className='contenedor-grafica'>
         <p className="text-fecha-grafica font-google-delgada descripcion">
-          <span style={{display: 'block'}}>{textFechaGrafica}</span>
-          <span>(pronostico cada 3 horas)</span>
+          <span>(la grafica arroja el pronostico cada 3 horas)</span>
         </p>
         <div className='grafica'>
           <CustomChart />

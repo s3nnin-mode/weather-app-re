@@ -1,0 +1,49 @@
+.contenedor-detalles-pronostico {
+    p {
+        margin: 0;
+    }
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    .detalles {
+        grid-column: 1/8;
+        display: flex;
+        flex-direction: column;
+
+        .detalles-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            img {
+                grid-column: 1/2;
+                align-self: center;
+                width: 50px;
+            }
+    
+            p {
+                align-content: center;
+                text-align: left;
+            }
+        }
+        
+        .detalles-body {
+            padding-left: 10px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            
+            .presion-texto, .presion-suelo {
+                display: flex;
+            }
+
+            .velocidad-viento, .humedad-texto {
+                display: flex;
+                gap: 4px;
+            }
+
+            .direccion-viento, .visibilidad {
+                display: flex;
+                gap: 4px;
+            }
+        }
+    }
+}

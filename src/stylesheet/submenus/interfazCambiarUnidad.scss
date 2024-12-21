@@ -2,6 +2,7 @@
     padding: 0 12px;
     width: 300px;
     width: 100%;
+    position: relative;
 
     button {
         background-color: transparent;
@@ -43,13 +44,15 @@
     }
 
     .nota-unidades {
-        width: 100%;
+        width: 92%;
         background-color: rgb(196, 184, 168);
         color: black;
         border-radius: 5px;
         font-style: italic;
         align-content: center;
         padding: 5px;
+        position: absolute;
+        bottom: 10px;
 
         p {
             margin: 0;

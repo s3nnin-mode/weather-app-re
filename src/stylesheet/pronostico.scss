@@ -7,17 +7,15 @@
     overflow-x: hidden;
 
     .contenedor-cartas {
-        height: 50%;
+        // height: 50%;
 
-        h2 {
-            margin-bottom: 0.5rem;
+        .descripcion {
+            margin-bottom: 1rem;
         }
         .cartas {
             display: flex;
             border-radius: 8px;
             overflow: hidden;
-            // justify-content: center;
-            // gap: 5px;
         }
 
         .cartas:hover {
@@ -26,15 +24,21 @@
         }
     }
 
+    h5 {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        color: rgb(255, 165, 0, .9);
+    }
+
     .contenedor-grafica {
         margin-top: 5px;
 
-        .text-fecha-grafica {
-            text-align: center;
-            font-style: italic;
-            border-bottom: 1px dotted grey;
-            padding: 10px 0;
-        }
+        // .text-fecha-grafica {
+        //     text-align: center;
+        //     font-style: italic;
+        //     border-bottom: 1px dotted grey;
+        //     padding: 10px 0;
+        // }
     }
 }
 
