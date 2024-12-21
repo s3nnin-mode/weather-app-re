@@ -11,14 +11,13 @@ interface Props {
   hayUnaInterfazAbierta: boolean;
 }
 
-const useLocalidadGuardada = () => {
+export const useLocalidadGuardada = () => {
   const contexto = useContext(MiLocalidadContexto);
 
   if (!contexto) {
-    console.log('NO PUEDES USAR CONTEXTO DE COORDENADAS FUERA DEL SIDEBAR');
-    throw new Error('c');
+    throw new Error('NO PUEDES USAR CONTEXTO DE COORDENADAS FUERA DEL SIDEBAR');
   }
-
+  console.log('coord', contexto.miLocalidad)
   return contexto;
 }
 
@@ -34,14 +33,14 @@ const useMiLocalidad = () => {
         if (localidadActual) {
           setMiUbicacion(localidadActual);
         }
+        console.log('llamada api')
       } catch(error) {
-        console.log(error)
-        throw new Error('b')
+        throw new Error('NO SE OBTUVO COORDENADAS, NI LAS DE POR DEFECTO');
       }
     }
     obtenerLocalidad();
-  }, [])
-  return miUbicacion
+  }, [miLocalidad])
+  return miUbicacion;
 }
 
 export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparEspacio}) => {

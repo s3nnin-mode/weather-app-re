@@ -2,10 +2,14 @@ import { useAppDispatch } from "../hooks"
 import { PropsLocalidadLi } from "../interfacez&types/localidadLi";
 import { useHistorialContext } from "./misciudades";
 import { actualizarDataApp } from "../utils/estados";
+import { useLocalidadGuardada } from "./localidadActual";
+import { useContext } from "react";
+import { MiLocalidadContexto } from "../contextos/localidadGuardadaContexto";
 
 export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, lat, lon, esConfig, esHistorial}) => {
   const dispatch = useAppDispatch();
   const { setHistorial } = useHistorialContext();
+  const contexto = useContext(MiLocalidadContexto);
 
   const guardarCiudadVisitada = () => {
     let miHistorial = localStorage.getItem('ciudadesVisitadas');
@@ -22,11 +26,15 @@ export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, l
   const handleClick = async () => {
     actualizarDataApp(lat, lon, dispatch)
 
-    if(esConfig) {              //si el componente Buscador es el del sidebar(esta siendo usado para actualizar la localidad), la ciudad seleccionada se guardara en el localstorage para tener acceso la proxima vez de forma predeterminada
+    if (esConfig) {            //si el componente Buscador es el del sidebar(esta siendo usado para actualizar la localidad), la ciudad seleccionada se guardara en el localstorage para tener acceso la proxima vez de forma predeterminada
+      if (!contexto) {
+        console.error('El contexto solo puede usarse dentro del Sidebar');
+        return;
+      }
+      contexto.setMiLocalidad({lat, lon});
       localStorage.setItem('miLocalidad', JSON.stringify({lat, lon})); 
-      return;
     }
-    
+
     if (!esHistorial && !esConfig) {  //Este componente LocalidadLi es usado en 3 casos: para el historial de navegacion, para cambiar(configurar) tu nueva localidad y para mostrar los resultados al buscar una ciudad especifica en el buscador arriba a la derecha
       guardarCiudadVisitada();        //la ciudad a la que se haga click se guardara en el localstorage,
     }                                 //(solo si el elemento li pertenece al buscador 'global' y no al buscador para configurar tu localidad o para mostrar el historial).
