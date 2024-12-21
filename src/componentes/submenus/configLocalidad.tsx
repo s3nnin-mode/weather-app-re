@@ -1,11 +1,10 @@
-import { Buscador, PropsBuscador } from "../buscador";
+import { Buscador } from "../buscador";
 
 interface Props {
-  paraConfig: PropsBuscador;
   liberarEspacio: () => void;
 }
 
-export const InterfazCambiarLocalidad: React.FC<Props> = ({paraConfig, liberarEspacio}) => {
+export const InterfazCambiarLocalidad: React.FC<Props> = ({liberarEspacio}) => {
     return (
       <div className="collapse buscador-cambiar-localidad" id="buscador-config">
       <button 
@@ -19,7 +18,7 @@ export const InterfazCambiarLocalidad: React.FC<Props> = ({paraConfig, liberarEs
         >
         <i className="bi bi-arrow-left"></i>
       </button>
-        <Buscador paraActualizarLocalidad={paraConfig.paraActualizarLocalidad}/>
+        <Buscador esConfig={true}/>
       </div>
     )
 }

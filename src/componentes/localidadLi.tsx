@@ -3,7 +3,7 @@ import { PropsLocalidadLi } from "../interfacez&types/localidadLi";
 import { useHistorialContext } from "./misciudades";
 import { actualizarDataApp } from "../utils/estados";
 
-export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, lat, lon, esConfig, retornarUbicacion, esHistorial}) => {
+export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, lat, lon, esConfig, esHistorial}) => {
   const dispatch = useAppDispatch();
   const { setHistorial } = useHistorialContext();
 
@@ -15,15 +15,14 @@ export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, l
       const nuevaCiudad = { name: name, state: state, country: country, lat: lat, lon: lon };
       listaHistorial.push(nuevaCiudad);
       localStorage.setItem('ciudadesVisitadas', JSON.stringify(listaHistorial));
-      setHistorial(listaHistorial);        //actualizo el historial en el useContext para que este sincronizado con el localstorage
+      setHistorial(listaHistorial);        //actualizo el historial en el useContext para que este sincronizado con el localstorage, ya que react no tiene una forma nativa de saber cuando el localstorage cambia
     }
   }
 
   const handleClick = async () => {
     actualizarDataApp(lat, lon, dispatch)
 
-    if(esConfig && retornarUbicacion) {                           //Para mostrar de forma instantanea la nueva ubicacion del usuario necesito usar una funcion callback para poder ver la localidad seleccionada.
-      retornarUbicacion({name, state, country, lat, lon});         //Esto debido a que el contenido del localstorage no se actualiza de inmediato hasta recargar la pagina.
+    if(esConfig) {              //si el componente Buscador es el del sidebar(esta siendo usado para actualizar la localidad), la ciudad seleccionada se guardara en el localstorage para tener acceso la proxima vez de forma predeterminada
       localStorage.setItem('miLocalidad', JSON.stringify({lat, lon})); 
       return;
     }

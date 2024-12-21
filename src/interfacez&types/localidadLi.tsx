@@ -8,6 +8,5 @@ export interface PropsLocalidadLi {
     state?: string;
     esHistorial?: boolean;
     esConfig?: boolean;
-    retornarUbicacion?: (props: PropsLocalidadLi) => void;
-    actualizarCiudades?: (props: ciudadesGuardadasProps[]) => void;
+    // actualizarCiudades?: (props: ciudadesGuardadasProps[]) => void;
 }

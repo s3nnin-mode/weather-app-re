@@ -5,18 +5,12 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { PropsLocalidadLi } from '../interfacez&types/localidadLi';
 
 export interface PropsBuscador {
-  paraActualizarLocalidad?: {
-    esConfig: boolean,
-    retornarUbicacion: (props: PropsLocalidadLi) => void,
-  }
+  esConfig?: boolean;
 }
 
-export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) => {
+export const Buscador: React.FC<PropsBuscador> = ({ esConfig }) => {
   const [sugerencias, setSugerencias] = useState<PropsLocalidadLi[]>([]);
   const [error, setError] = useState(false);
-  const esConfig = paraActualizarLocalidad?.esConfig;
-  const retornarUbicacion = paraActualizarLocalidad?.retornarUbicacion
-
   const [iconResponsiveClicked, setIconResponseClicked] = useState(false);
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +28,7 @@ export const Buscador: React.FC<PropsBuscador> = ({ paraActualizarLocalidad }) =
     const { name, state, country, lat, lon } = obj;
     return <LocalidadLi 
     name={name} state={state} country={country} lat={lat} lon={lon} key={lat + lon + name} 
-    esConfig={esConfig} retornarUbicacion={retornarUbicacion} />
+    esConfig={esConfig} />
   });
 
   useEffect(() => {

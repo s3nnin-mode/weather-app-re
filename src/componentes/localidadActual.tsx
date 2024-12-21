@@ -1,19 +1,59 @@
-import { useEffect, useRef, useState } from "react";
 import '../stylesheet/localidadactual.scss';
 import { actualizarDataApp } from "../utils/estados";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { ciudadesGuardadasProps } from "../interfacez&types/ciudadGuardada";
-import { ubicacionData } from "../states/weather";
+import { useAppDispatch } from "../hooks";
+import { useContext, useEffect, useState } from 'react';
+import { MiLocalidadContexto } from '../contextos/localidadGuardadaContexto';
+import { getUbicacion } from '../services/ubicacion';
+import { ciudadesGuardadasProps } from '../interfacez&types/ciudadGuardada';
 
 interface Props {
   ocuparEspacio: () => void;
   hayUnaInterfazAbierta: boolean;
 }
 
+const useLocalidadGuardada = () => {
+  const contexto = useContext(MiLocalidadContexto);
+
+  if (!contexto) {
+    console.log('NO PUEDES USAR CONTEXTO DE COORDENADAS FUERA DEL SIDEBAR');
+    throw new Error('c');
+  }
+
+  return contexto;
+}
+
+const useMiLocalidad = () => {
+  const { miLocalidad } = useLocalidadGuardada();
+  const [miUbicacion, setMiUbicacion] = useState<ciudadesGuardadasProps | null>(null);
+
+  useEffect(() => {
+    const obtenerLocalidad = async () => {
+      try {
+        const { lat, lon } = miLocalidad;
+        const localidadActual = await getUbicacion(lat, lon);
+        if (localidadActual) {
+          setMiUbicacion(localidadActual);
+        }
+      } catch(error) {
+        console.log(error)
+        throw new Error('b')
+      }
+    }
+    obtenerLocalidad();
+  }, [])
+  return miUbicacion
+}
+
 export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparEspacio}) => {
+
   const dispatch = useAppDispatch();
-  const ubicacion = useAppSelector(ubicacionData);
-  const { name, state, country, lat, lon } = ubicacion;
+  const miLocalidad = useMiLocalidad();
+
+  if(!miLocalidad) {
+    return <div>cargando...</div>
+  }
+
+  const { name, state, country, lat, lon } = miLocalidad;
 
   return (
     <div className='info-localidad-actual-contenedor'>
