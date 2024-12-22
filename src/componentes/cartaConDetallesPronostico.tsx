@@ -48,7 +48,7 @@ export const CartaConDetalles = () => {
             <p>PSNM {pressure}mb</p>
           </div>
           <div className='presion-suelo'>
-            <p>PSN{grnd_level}hPa</p>
+            <p>PSN {grnd_level}hPa</p>
           </div>
           <div className='velocidad-viento'>
             <i className="bi bi-wind icono-viento" />

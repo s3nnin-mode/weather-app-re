@@ -25,7 +25,7 @@ export const Pronostico = () => {
   });
 
   const textFechaGrafica = dataGrafica.length > 0 ?
-   `Pronostico para el dia ${diaLegible(dataGrafica[0].dt_txt.substring(0, 10), '-')} '${dataGrafica[0].dt_txt.substring(0, 10)}'` :  //dataGrafica[0].dt_txt.substring(0, 10) Es un trozo de cadena que devuelve una fecha en formato año-mes-dia.
+   `${diaLegible(dataGrafica[0].dt_txt.substring(0, 10), '-')} '${dataGrafica[0].dt_txt.substring(0, 10)}'` :  //dataGrafica[0].dt_txt.substring(0, 10) Es un trozo de cadena que devuelve una fecha en formato año-mes-dia.
     'cargando...';
 
   return (
@@ -37,7 +37,7 @@ export const Pronostico = () => {
         </div>
       </div>
 
-      <h5>{textFechaGrafica}</h5>
+      <h5>Pronostico para el dia <span>{textFechaGrafica}</span></h5>
 
       <CartaConDetalles />
 

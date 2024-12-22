@@ -28,7 +28,8 @@ export const Sidebar = () => {
       <div className='offcanvas offcanvas-start' data-bs-backdrop="false" data-bs-scroll="false" tab-index="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-            WeatherApp --S3nnin
+            <i className="bi bi-cloud-fill icono-header-sidebar"></i>
+            Clima
           </h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
           </button>

@@ -20,7 +20,7 @@ export const Temperatura = () => {
 
   return (
     <div className='current-temp-container'>
-      <p className='temp font-google-delgada'>{temp ? conversor(unidad, temp) : '..'}°</p>
+      <p className='temp font-google-delgada'>{temp ? conversor(unidad, temp) : 'cargando'}°</p>
       <div className='font-google'>
         <p 
         className={claseParaUnidadActual('celcius')}

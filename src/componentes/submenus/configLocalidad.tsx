@@ -23,8 +23,8 @@ export const InterfazCambiarLocalidad: React.FC<Props> = ({liberarEspacio}) => {
         <div className='nota-buscador-config'>
         <p>
           <span>NOTA: </span> 
-          En esta seccion puedes cambiar tu localidad. 
-          La localidad se guarda en el localstotare, asi no es necesario buscar tu ciudad
+          En esta sección puedes cambiar tu localidad. 
+          La localidad se guarda en el localstorage, asi no es necesario buscar tu ciudad
           manualmente cada vez que entres! 
         </p>
         </div>
