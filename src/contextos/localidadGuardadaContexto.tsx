@@ -17,7 +17,7 @@ export const MiLocalidadContexto = createContext<Propsd | null>(null);
 
 export const LocalidadGuardada: React.FC<PropsWithChildren<{}>> = ({children}) => {
 
-  const [miLocalidad, setMiLocalidad]= useState<coordenadas>({ lat: 19.4326, lon: -99.1332});
+  const [miLocalidad, setMiLocalidad]= useState<coordenadas>({ lat: 16.868, lon: -99.894});
   const dispatch = useAppDispatch()
 
   const verificarLocalidadGuardada =  async () => {

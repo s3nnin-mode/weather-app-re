@@ -17,7 +17,6 @@ export const useLocalidadGuardada = () => {
   if (!contexto) {
     throw new Error('NO PUEDES USAR CONTEXTO DE COORDENADAS FUERA DEL SIDEBAR');
   }
-  console.log('coord', contexto.miLocalidad)
   return contexto;
 }
 
@@ -33,7 +32,6 @@ const useMiLocalidad = () => {
         if (localidadActual) {
           setMiUbicacion(localidadActual);
         }
-        console.log('llamada api')
       } catch(error) {
         throw new Error('NO SE OBTUVO COORDENADAS, NI LAS DE POR DEFECTO');
       }
