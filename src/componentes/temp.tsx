@@ -5,11 +5,14 @@ import { conversor } from "../utils/conversiongrados";
 import '../stylesheet/temp.scss';
 
 export const Temperatura = () => {
+  const dispatch = useAppDispatch();
   const weather = useAppSelector(weatherData);
   const temp = weather.main.temp;
   const unidad = useAppSelector(unidadActual);
 
-  const dispatch = useAppDispatch();
+  if (!temp || !unidad || !weather) {
+    return <span style={{alignContent:"center", color: 'orange'}}>cargando...</span>
+  }
 
   const claseParaUnidadActual = (unidadCorrespondiente: string) => {
     if (unidad === unidadCorrespondiente) {
@@ -20,7 +23,9 @@ export const Temperatura = () => {
 
   return (
     <div className='current-temp-container'>
-      <p className='temp font-google-delgada'>{temp ? conversor(unidad, temp) : 'cargando'}°</p>
+      <p className='temp font-google-delgada'>
+        {conversor(unidad, temp)}°
+      </p>
       <div className='font-google'>
         <p 
         className={claseParaUnidadActual('celcius')}

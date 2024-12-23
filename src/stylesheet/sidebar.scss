@@ -33,7 +33,8 @@
             overflow-y: auto;
             padding: 0 12px;
             scrollbar-width: thin; 
-            scrollbar-color: rgb(17, 17, 17) black;        
+            scrollbar-color: rgb(17, 17, 17) black;
+            animation: MostrarBtnsDeNuevo .4s linear both 300ms;   
         
             .btn-login {
                 width: 100%;
@@ -44,6 +45,12 @@
                     color: white;
                 }
             }
+
+
+        }
+
+        .ocultar-btns {
+            display: none;
         }
     }
 }
@@ -56,6 +63,18 @@
 
 .btn-dark:hover {
     color: white;
+}
+
+@keyframes MostrarBtnsDeNuevo {
+    from {
+        opacity: 0;
+        display: none;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 290px) {

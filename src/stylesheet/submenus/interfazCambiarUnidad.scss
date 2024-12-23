@@ -1,3 +1,5 @@
+// @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
 .contenedor-para-configurar-unidad {
     padding: 0 12px;
     width: 300px;
@@ -53,6 +55,7 @@
         padding: 5px;
         position: absolute;
         bottom: 10px;
+        animation: EntradaDeLaNota 0.5s linear 320ms both;
 
         p {
             margin: 0;
@@ -66,3 +69,4 @@
         }
     }
 }
+

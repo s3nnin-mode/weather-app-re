@@ -31,11 +31,11 @@ export const Sidebar = () => {
             <i className="bi bi-cloud-fill icono-header-sidebar"></i>
             Clima
           </h5>
-          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+          <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close">
           </button>
         </div>
         <div className='offcanvas-body'>
-          <div className='btns' style={{display: hayUnaInterfazAbierta ? 'none' : 'block'}}>
+          <div className={`${hayUnaInterfazAbierta ? 'ocultar-btns' : 'btns'}`}>
             <button type="button" className='btn-login btn btn-secondary' disabled>
               Iniciar Sesión <span className='texto-desabilitado'>(en beta..)</span>
             </button>
