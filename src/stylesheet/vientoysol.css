@@ -1,0 +1,26 @@
+.viento-y-sol {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 400px;
+  width: 45%;
+}
+.viento-y-sol .viento-container {
+  height: 50%;
+  max-height: 50%;
+  overflow: hidden;
+  padding: 5px;
+  display: flex;
+}
+.viento-y-sol .viento-container .detalles-del-viento {
+  align-content: center;
+}
+.viento-y-sol .viento-container .detalles-del-viento div {
+  margin: 20px 0;
+}
+.viento-y-sol .viento-container .detalles-del-viento div p {
+  margin: 0;
+}
+.viento-y-sol .sol-container {
+  height: 50%;
+}/*# sourceMappingURL=vientoysol.css.map */

@@ -1,0 +1,46 @@
+.carta {
+  border-radius: 11px;
+  min-width: 20%;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 900;
+  position: relative;
+}
+.carta p {
+  margin: 0;
+}
+.carta p .grados-min-text {
+  opacity: 0.5;
+}
+
+.carta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  box-shadow: 2px 4px 6px white;
+  border: 1px solid red;
+  border-radius: 11px;
+  z-index: -1;
+}
+
+.carta:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+  border-radius: 8px;
+}
+
+.carta-select {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+  border-radius: 11px;
+  box-shadow: inset 1px 0px 0px orange;
+  border-bottom: 1px solid orange;
+}/*# sourceMappingURL=cartas.css.map */

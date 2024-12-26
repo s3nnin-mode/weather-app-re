@@ -1,0 +1,74 @@
+.molinos {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+.molinos .icono-viento {
+  display: none;
+}
+.molinos .molino::before {
+  content: "";
+  height: 40%;
+  display: block;
+}
+.molinos .molino {
+  position: relative;
+  width: 40%;
+  height: 100%;
+}
+.molinos .molino .aspa {
+  position: absolute;
+  top: 17%;
+  animation: molino-animacion 4s linear both infinite;
+}
+.molinos .molino .aspa img {
+  width: 100%;
+}
+.molinos .molino .poste {
+  height: 60%;
+  background-image: url("https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.molinos .molino-chico::before {
+  content: "";
+  height: 60%;
+  display: block;
+}
+.molinos .molino-chico {
+  position: relative;
+  width: 40%;
+  height: 100%;
+}
+.molinos .molino-chico .aspa {
+  position: absolute;
+  top: 39%;
+  text-align: center;
+  animation: molino-animacion 4s linear both infinite;
+}
+.molinos .molino-chico .aspa img {
+  width: 85%;
+}
+.molinos .molino-chico .poste {
+  height: 40%;
+  background-image: url("https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .molinos {
+    width: auto;
+    align-self: center;
+    margin-right: 10px;
+  }
+  .molinos .icono-viento {
+    display: block;
+    font-size: 3rem;
+  }
+  .molinos .molino, .molinos .molino-chico, .molinos .molino::before, .molinos .molino-chico::before {
+    display: none;
+  }
+}/*# sourceMappingURL=molinos.css.map */

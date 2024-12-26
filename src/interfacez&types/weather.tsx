@@ -46,7 +46,26 @@ export const InitialStateWeather = {
     visibility: 0,
     weather: [ { id: 0, main: '', description: '', icon: '' } ],
     wind: { speed: 0, deg: 0 }
-  }
+  },
+  contaminacion: {
+    coord: {lon: 0, lat: 0},
+    list: [
+        {
+            main: { aqi: 0 },
+            dt: 0,
+            componentes: {
+                co: 0,
+                nh3: 0,
+                no: 0,
+                no2: 0,
+                o3: 0,
+                pm2_5: 0,
+                pm10: 0,
+                so2: 0
+            }
+        }
+    ]
+}
 }
 
 export interface PronosticoProps {

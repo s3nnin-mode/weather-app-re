@@ -2,6 +2,8 @@ import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { ciudadesGuardadasProps } from "../interfacez&types/ciudadGuardada";
 import { actualizarDataApp } from "../utils/estados";
 import { useAppDispatch } from "../hooks";
+import { getMapa } from "../services/mapa";
+import { getContaminacion } from "../services/contaminacion";
 
 interface coordenadas {
   lat: number;
@@ -50,7 +52,7 @@ export const LocalidadGuardada: React.FC<PropsWithChildren<{}>> = ({children}) =
     if (datosGuardados) {
       const { lat, lon } = datosGuardados;
       actualizarDataApp(lat, lon, dispatch);
-      setMiLocalidad(datosGuardados)
+      setMiLocalidad(datosGuardados);
       return;
     }
 

@@ -1,0 +1,91 @@
+.cartas-y-grafica {
+  width: 55%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-x: hidden;
+}
+.cartas-y-grafica .contenedor-cartas .descripcion {
+  margin-bottom: 1rem;
+}
+.cartas-y-grafica .contenedor-cartas .cartas {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cartas-y-grafica .contenedor-cartas .cartas:hover {
+  transition: 0.3s;
+  overflow: visible;
+}
+.cartas-y-grafica h5 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: rgba(255, 165, 0, 0.9);
+}
+.cartas-y-grafica .contenedor-grafica {
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .cartas-y-grafica .contenedor-cartas .descripcion {
+    font-size: 20px;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta {
+    padding: 2px;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta img {
+    width: 80%;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta p {
+    font-size: 14px;
+  }
+  .cartas-y-grafica h5 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .cartas-y-grafica .contenedor-grafica .text-fecha-grafica {
+    font-size: 13px;
+  }
+  .cartas-y-grafica h5 span {
+    display: block;
+  }
+}
+@media screen and (max-width: 320px) {
+  .cartas-y-grafica .contenedor-cartas {
+    height: auto;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    grid-row: 1/3;
+    width: 70%;
+    justify-self: center;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta .nombre-del-dia {
+    grid-column: 1/2;
+    grid-row: 2/5;
+    grid-row: 3/5;
+  }
+  .cartas-y-grafica .contenedor-cartas .cartas .carta .grados {
+    grid-column: 3/4;
+    grid-row: 2/4;
+    align-content: center;
+  }
+  .cartas-y-grafica .contenedor-grafica .text-fecha-grafica {
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=pronostico.css.map */

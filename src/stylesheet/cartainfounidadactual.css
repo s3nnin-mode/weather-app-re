@@ -1,0 +1,50 @@
+.info-unidad-contenedor {
+  margin: 1em 0;
+  background-color: rgb(50, 50, 50);
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.info-unidad-contenedor p {
+  font-size: 18px;
+  margin: 0;
+}
+.info-unidad-contenedor p .unidad-text {
+  color: orange;
+}
+.info-unidad-contenedor button {
+  padding: 0;
+  background-color: transparent;
+}
+.info-unidad-contenedor button i {
+  color: orange;
+  font-size: 18px;
+  transition: 0.5s;
+}
+.info-unidad-contenedor button i:hover {
+  color: white;
+}
+.info-unidad-contenedor button:hover {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 576px) {
+  .info-unidad-contenedor p {
+    font-size: 16px;
+  }
+  .info-unidad-contenedor button i {
+    color: orange;
+    font-size: 16px;
+    transition: 0.5s;
+  }
+}
+@media screen and (max-width: 380px) {
+  .info-unidad-contenedor p {
+    font-size: 15px;
+  }
+}/*# sourceMappingURL=cartainfounidadactual.css.map */

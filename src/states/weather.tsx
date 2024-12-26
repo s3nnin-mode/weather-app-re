@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { UbicacionProps, WeatherProps, InitialStateWeather } from "../interfacez&types/weather";
+import { PropsContaminacion } from "../interfacez&types/contaminacion";
 
 interface PropsWeather {
   ubicacion: UbicacionProps,
-  climaActual: WeatherProps
+  climaActual: WeatherProps,
+  contaminacion: PropsContaminacion
 }
 
 const initialState: PropsWeather = InitialStateWeather;
@@ -18,10 +20,15 @@ export const weatherSlice = createSlice({
     },
     setUbicacion: (state, action: PayloadAction<UbicacionProps>) => {
       state.ubicacion = action.payload;
+    },
+    setContaminacion: (state, action: PayloadAction<PropsContaminacion>) => {
+      console.log('la contaminacion llegó: ', action.payload)
+      state.contaminacion = action.payload;
     }
   }
 });
 
-export const { setWeather, setUbicacion } = weatherSlice.actions;
+export const { setWeather, setUbicacion, setContaminacion } = weatherSlice.actions;
 export const weatherData = (state: RootState) => state.weather.climaActual;
 export const ubicacionData = (state: RootState) => state.weather.ubicacion;
+export const contaminacionData = (state: RootState) => state.weather.contaminacion;
