@@ -29,7 +29,9 @@ export const CiudadesVisitadas = () => {
     country={ciudad.country} 
     lat={ciudad.lat} 
     lon={ciudad.lon} 
-    esHistorial={true} />
+    esHistorial={true}
+    key={ciudad.name + ciudad.state + ciudad.country + ciudad.lat + ciudad.lon}
+     />
   }) : <div className='msg-sin-historial font-google-delgada'>No hay ciudades recientes.</div>;
       
   return (

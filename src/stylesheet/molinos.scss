@@ -1,6 +1,7 @@
 .molinos {
-  width: 50%;
+  width: 200px;
   height: 100%;
+  height: 100px;
   display: flex;
 
   .icono-viento {
@@ -9,7 +10,7 @@
 
   .molino::before {
     content: '';
-    height: 40%;
+    height: 30%;
     display: block;
   }
 
@@ -19,8 +20,10 @@
     height: 100%;
 
     .aspa {
+      width: 70%;
       position: absolute;
-      top: 17%;
+      top: 0;
+      left: 15%;
       animation: molino-animacion 4s linear both infinite;
       img {
         width: 100%;
@@ -28,7 +31,7 @@
     }
 
     .poste {
-      height: 60%;
+      height: 70%;
       background-image: url('https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png');
       background-size: contain;
       background-repeat: no-repeat;
@@ -38,7 +41,7 @@
 
   .molino-chico::before {
     content: '';
-    height: 60%;
+    height: 55%;
     display: block;
   }
 
@@ -48,8 +51,11 @@
     height: 100%;
 
     .aspa {
+      width: 60%;
       position: absolute;
       top: 39%;
+      top: 35%;
+      left: 19%;
       text-align: center;
       animation: molino-animacion 4s linear both infinite;
 
@@ -59,7 +65,7 @@
     }
 
     .poste {
-      height: 40%;
+      height: 45%;
       background-image: url('https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png');
       background-size: contain;
       background-repeat: no-repeat;

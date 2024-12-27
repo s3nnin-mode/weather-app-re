@@ -3,7 +3,7 @@ export interface PropsContaminacion {
     list:  {
             main: { aqi: number },
             dt: number,
-            componentes: {
+            components: {
                 co: number,
                 nh3: number,
                 no: number,

@@ -53,7 +53,7 @@ export const InitialStateWeather = {
         {
             main: { aqi: 0 },
             dt: 0,
-            componentes: {
+            components: {
                 co: 0,
                 nh3: 0,
                 no: 0,
