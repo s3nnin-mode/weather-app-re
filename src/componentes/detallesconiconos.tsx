@@ -126,10 +126,18 @@ export const DetallesConIconos = () => {
   return (
     <div className='segundo-encabezado font-google'>
 
-      <div className='detalles-contaminacion'>
+      <div className='contaminacion-contenedor'>
         <h5>About pollution</h5>
-        <p className='font-google-delgada'> scale for Air Quality Index levels</p>
-        <div>
+        <p className='descripcion-text-contaminacion'>
+        You can see data on polluting gases, such as (CO), (NO), (NO 2), (O 3), (SO 2), (NH 3) and particles (PM 2.5 and PM 10).
+        </p>
+
+        <button className="btn btn-primary btn-ver-contaminacion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleE" aria-expanded="false" aria-controls="collapseExample">
+          See scale for Air Quality Index levels
+          <i className="bi bi-arrow-down"></i>
+        </button>
+        <div className="collapse" id="collapseExampleE">
+        <div className='contaminacion-info'>
           <p className='font-google-delgada'>
             Carbon Monoxide 
             <span className={calidadDelAireCo(co)}>
@@ -173,6 +181,7 @@ export const DetallesConIconos = () => {
           </p>
         </div>
       </div>
+        </div>
 
       <div className='viento-contenedor'>
         <Molinos />
@@ -185,18 +194,18 @@ export const DetallesConIconos = () => {
       <div className='detalles-con-iconos'>
         <div className='detalle'>
           <i className="bi bi-moisture" />
-            <p className='descripcion'>Humedad</p>
-            <p className='dato'>{humidity}%</p>
+          <p className='descripcion'>Humedad</p>
+          <p className='dato'>{humidity}%</p>
         </div>
         <div className='detalle'>
           <i className="bi bi-eye" />
-            <p className='descripcion'>Visibilidad</p>
-            <p className='dato'>{visibilidad}k</p>
+          <p className='descripcion'>Visibilidad</p>
+          <p className='dato'>{visibilidad}k</p>
         </div>
         <div className='detalle'>
           <i className="bi bi-thermometer" />
-            <p className='descripcion'>Presion</p>
-            <p className='dato'>{pressure}mb</p>
+          <p className='descripcion'>Presion</p>
+          <p className='dato'>{pressure}mb</p>
         </div>
       </div>
 

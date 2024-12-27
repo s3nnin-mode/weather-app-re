@@ -29,28 +29,25 @@ body {
 .segundo-encabezado {
   margin: 0 auto;
   max-width: 1400px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   flex-wrap: wrap;
-  overflow: hidden;
 
   .viento-contenedor {
     display: flex;
-    justify-content: end;
     align-items: end;
-    grid-column: 7/10;
+    grid-column: 1/4;
+    grid-row: 1/2;
   }
 
   .detalles-con-iconos {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
     justify-content: end;
-    align-items: end;
     grid-column: 10/-1;
+    grid-column: 4/7;
+    grid-row: 1/2;
 
     .detalle {
       display: flex;
@@ -67,17 +64,22 @@ body {
     }
   }
 
-  .detalles-contaminacion {
+  .contaminacion-contenedor {
     // width: 40%;
     margin-top: 1rem;
     grid-column: 1/7;
+    grid-column: 7/12;
     h5 {
       color: orange;
       color: rgb(173, 255, 47, .6);
-      text-align: center;
+      text-align: left;
     }
 
-    div {
+    .btn-ver-contaminacion {
+    }
+
+    .contaminacion-info {
+      margin-top: 1rem;
       display: flex;
       flex-wrap: wrap;
       p {
@@ -220,11 +222,33 @@ body {
     grid-template-rows: auto auto;
 
     .viento-contenedor {
-      justify-content: start;
       grid-column: 1/7;
+      grid-row: 1/2;
+
+      .viento-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-self: center;
+        p {
+          margin: 0;
+        }
+      }
     }
 
-    .detalles-contaminacion {
+    .detalles-con-iconos {
+      grid-row: 1/2;
+      grid-column: 7/-1;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: row;
+      gap: 10px;
+
+    }
+
+    .contaminacion-contenedor {
+      grid-column: 1/-1;
       grid-row: 2/3;
     }
   }
@@ -232,14 +256,22 @@ body {
 
 @media screen and (max-width: 980px) {
   .segundo-encabezado {
-    .detalles-contaminacion {
-      text-align: center;
-      grid-column: 1/-1;
+    .viento-contenedor {
+      .viento-info {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .segundo-encabezado {
+    display: flex;
+    flex-direction: column-reverse;
+    .viento-contenedor {
+      margin-top: 5px;      
     }
 
-    .detalles-con-iconos {
-      gap: 5px;
-    }
   }
 }
 
@@ -345,6 +377,23 @@ body {
     .detalles-con-iconos {
       gap: 0;
     }
+
+    .contaminacion-contenedor {
+
+      .btn-ver-contaminacion {
+        font-size: 14px;
+      }
+
+      .contaminacion-info {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(3, auto);
+        justify-content: space-between;
+        p {
+          width: auto;
+        }
+      }
+    }
   }
 }
 
@@ -379,21 +428,27 @@ body {
   }
 
   .segundo-encabezado {
-    .detalle {
-      p {
-        font-size: 1rem;
+    .detalles-con-iconos {
+      display: flex;
+      flex-wrap: wrap;
+      div:nth-child(1) {
+        width: 100%;
+        justify-content: center;
       }
 
-      i {
-        font-size: 20px;
+      div {
+        width: 40%;
       }
     }
 
-    .detalles-contaminacion {
-      div {
+    .contaminacion-contenedor {
+
+      .descripcion-text-contaminacion {
+        font-size: 15x;
+      }
+      .contaminacion-info {
         p {
-          text-align: left;
-          width: 50%;
+          font-size: 14px;
         }
       }
     }
@@ -478,25 +533,19 @@ body {
   }
 
   .segundo-encabezado {
-    .detalle {
-      p {
-        font-size: 0.8rem;
-      }
-
-      i {
-        font-size: 20px;
-      }
-    }
-  }
-
-  .segundo-encabezado {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 
     .detalle {
-      width: 40%;
-      justify-content: center;
+      width: 100% !important;
+      justify-content: start !important;
+    }
+
+    .contaminacion-contenedor {
+      .descripcion-text-contaminacion {
+        font-size: 14px;
+      }
     }
 
     .detalle:nth-child(3) {
