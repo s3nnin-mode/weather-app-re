@@ -6,9 +6,7 @@ const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/favicon.ico",
-  "manifest.json",
-  "/index.css",
-  "/index.tsx"
+  "manifest.json"
 ]
 
 self.addEventListener('install', (event) => {
@@ -60,13 +58,5 @@ self.addEventListener('fetch', (event) => {
       .catch(() => caches.match(event.request))
     )
   }
-
-
-
-  // event.respondWith(
-  //   caches.match(event.request).then((response) => {
-  //     return response || fetch(event.request);
-  //   })
-  // );
 });
   
