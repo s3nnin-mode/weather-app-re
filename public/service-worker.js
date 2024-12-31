@@ -40,13 +40,13 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (STATIC_ASSETS.includes(event.request.url)) {
-    event.respondWidth(
+    event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         return cachedResponse || fetch(event.request)
       })
     )
   } else {
-    event.respondWidth(
+    event.respondWith(
       fetch(event.request)
       .then((response) => {
         const clone = response.clone();
