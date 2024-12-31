@@ -8,7 +8,7 @@ const STATIC_ASSETS = [
   "/favicon.ico",
   "manifest.json",
   "/bootstrap-icons/font/bootstrap-icons.json",
-  "/bootstrap/dist/css/bootstrap.min.css"
+  "/bootstrap/dist/css/bootstrap.min.css",
 ]
 
 self.addEventListener('install', (event) => {
