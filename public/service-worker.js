@@ -1,7 +1,5 @@
 // service-worker.js
 
-const { cache } = require("react");
-
 const CACHE_NAME = "weather-app-v1-test";
 
 const STATIC_ASSETS = [
