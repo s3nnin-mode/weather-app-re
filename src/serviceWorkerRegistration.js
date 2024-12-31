@@ -2,14 +2,15 @@
 
 // Si deseas registrar el service worker en producción
 const isLocalhost = Boolean(
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '[::1]' ||
-    window.location.hostname === '127.0.0.1'
-  );
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '[::1]' ||
+  window.location.hostname === '127.0.0.1'
+);
   
   export function register() {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+
       if (publicUrl.origin !== window.location.origin) {
         // El service worker no funcionará si PUBLIC_URL está en un dominio diferente.
         return;
@@ -22,10 +23,11 @@ const isLocalhost = Boolean(
           // En localhost, verificar si el service worker ya está registrado
           checkValidServiceWorker(swUrl);
         } else {
-          // En producción, registrar el service worker
+          //En producción, registrar el service worker
           registerValidSW(swUrl);
         }
       });
+
     }
   }
   
