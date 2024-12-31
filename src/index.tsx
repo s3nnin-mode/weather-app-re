@@ -6,6 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { HistorialDeNavegacion } from './contextos/historialContexto';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+// Importar Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Importar Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons.json';
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
