@@ -5,13 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HistorialDeNavegacion } from './contextos/historialContexto';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-
-// Importar Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Importar Bootstrap Icons
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.json';
-
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,9 +16,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <HistorialDeNavegacion>
-      <App />
-    </HistorialDeNavegacion>
+    <BrowserRouter>
+      <HistorialDeNavegacion>
+        <App />
+      </HistorialDeNavegacion>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

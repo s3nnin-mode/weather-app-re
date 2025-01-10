@@ -19,7 +19,6 @@ export const pronosticoSlice = createSlice({
   initialState,
   reducers: {
     setPronostico: (state, action: PayloadAction<{ [key: string]: PronosticoProps[]}>) => {
-      console.log('pronostico: ', action.payload)
       state.pronosticoDeCincoDias = action.payload;
     },
     setDatosParaGrafica: (state, action: PayloadAction<PronosticoProps[]>) => {

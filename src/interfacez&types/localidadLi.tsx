@@ -4,7 +4,7 @@ export interface PropsLocalidadLi {
     country?: string;
     lat: number;
     lon: number;
-    name: string;
+    city: string;
     state?: string;
     esHistorial?: boolean;
     esConfig?: boolean;

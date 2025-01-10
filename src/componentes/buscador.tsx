@@ -25,9 +25,9 @@ export const Buscador: React.FC<PropsBuscador> = ({ esConfig }) => {
   }
 
   const componentes = sugerencias.map(obj => {
-    const { name, state, country, lat, lon } = obj;
+    const { city, state, country, lat, lon } = obj;
     return <LocalidadLi 
-    name={name} state={state} country={country} lat={lat} lon={lon} key={lat + lon + name} 
+    city={city} state={state} country={country} lat={lat} lon={lon} key={lat + lon + city} 
     esConfig={esConfig} />
   });
 

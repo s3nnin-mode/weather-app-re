@@ -15,22 +15,15 @@ export const useHistorialContext = () => {
 export const CiudadesVisitadas = () => {
   const { historial, setHistorial } = useHistorialContext();
 
-  useEffect(() => {
-    const ciudadesGuardadas = localStorage.getItem('ciudadesVisitadas');
-    ciudadesGuardadas ? 
-    setHistorial(JSON.parse(ciudadesGuardadas)) : 
-    localStorage.setItem('ciudadesVisitadas', JSON.stringify([]));
-  }, []);
-
   const ciudades = historial.length > 0 ? historial.map(ciudad => {
     return <LocalidadLi 
-    name={ciudad.name} 
+    city={ciudad.city} 
     state={ciudad.state} 
     country={ciudad.country} 
     lat={ciudad.lat} 
     lon={ciudad.lon} 
     esHistorial={true}
-    key={ciudad.name + ciudad.state + ciudad.country + ciudad.lat + ciudad.lon}
+    key={ciudad.city + ciudad.state + ciudad.country + ciudad.lat + ciudad.lon}
      />
   }) : <div className='msg-sin-historial font-google-delgada'>No hay ciudades recientes.</div>;
       

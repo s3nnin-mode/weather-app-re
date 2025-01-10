@@ -1,0 +1,82 @@
+.seccion-form-register {
+    min-height: 100vh;
+    background-color: #1c1c1c;
+    color: white;
+    align-content: center;
+
+    .contenedor-form-register {
+        padding: 10px;
+        max-width: 400px;
+        min-width: 250px;
+        border: 1px solid;
+        border-radius: 8px;
+        margin: 0 auto;
+        padding-top: 1em;
+        background-color: white;
+        color: #1c1c1c;
+
+        display: flex;
+        flex-direction: column;
+
+        .titulo-form-register {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            i {
+                font-size: 2rem;
+                color: orange;
+            }
+
+            .icono-regresar-a-home {
+                color: black;
+                border-radius: 4px;
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+                position: relative;
+                top: 0;
+            }
+    
+            .icono-regresar-a-home:hover { 
+                box-shadow: 1px 1px 1px 1px #1c1c1c;               
+            }
+        }
+        
+        form {
+            div {
+                display: flex;
+                flex-direction: column;
+    
+                span {
+                    color: red;
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+    
+                input {
+                    outline: none;
+                    border: none;
+                    border-radius: 8px;
+                    border: 1px solid grey;
+                    height: 40px;
+                    padding: 8px;
+                    font-size: 18px;
+                }
+            }
+
+            button {
+                width: 100%;
+                margin: 12px auto;
+            }
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    .modal-register {
+        color: black;
+    }
+}

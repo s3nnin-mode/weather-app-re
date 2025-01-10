@@ -22,7 +22,6 @@ export const weatherSlice = createSlice({
       state.ubicacion = action.payload;
     },
     setContaminacion: (state, action: PayloadAction<PropsContaminacion>) => {
-      console.log('la contaminacion llegó: ', action.payload)
       state.contaminacion = action.payload;
     }
   }

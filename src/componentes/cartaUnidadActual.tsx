@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAppSelector } from "../hooks";
 import { unidadActual } from "../states/unidadParaGrados";
 import '../stylesheet/cartainfounidadactual.scss';
 
 interface Props {
   ocuparEspacio: () => void;
-  hayUnaInterfazAbierta: boolean
 }
 
-export const CartaInfoUnidadActual: React.FC<Props> = ({ocuparEspacio, hayUnaInterfazAbierta}) => {
+export const CartaInfoUnidadActual: React.FC<Props> = ({ocuparEspacio}) => {
   const unidad = useAppSelector(unidadActual);
 
   return (
@@ -20,10 +19,10 @@ export const CartaInfoUnidadActual: React.FC<Props> = ({ocuparEspacio, hayUnaInt
       <button 
         className="btn btn-dark btn-unidad-actual" 
         type="button" 
-        data-bs-toggle={ hayUnaInterfazAbierta ? '' : 'collapse'}
+        data-bs-toggle='collapse'
         data-bs-target="#config-unidad" 
         aria-expanded="false" 
-        aria-controls="collapseExample" 
+        aria-controls="config-unidad" 
         onClick={ocuparEspacio}
         >
           <i className="bi bi-arrow-right" />

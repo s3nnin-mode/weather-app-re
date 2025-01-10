@@ -6,6 +6,7 @@ import { getContaminacion } from "../services/contaminacion";
 
 
 export const actualizarDataApp = async (lat: number, lon: number, dispatch: any) => {
+    console.log('datos que llegan', lat, lon)
     const dataClima = await getClimaActual(lat, lon);
     const dataUbicacion = await getUbicacion(lat, lon);
     const contaminacionData = await getContaminacion(lat, lon);

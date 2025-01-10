@@ -7,14 +7,14 @@ import { convertirMsAKm } from "./vientoysol";
 
 interface Main {
   feels_like: number
-grnd_level?: number
-humidity?: number
-pressure?: number
-sea_level?:number
-temp: number
-temp_kf?: number
-temp_max: number
-temp_min: number
+  grnd_level?: number
+  humidity?: number
+  pressure?: number
+  sea_level?:number
+  temp: number
+  temp_kf?: number
+  temp_max: number
+  temp_min: number
 }
 
 export const CartaConDetalles = () => {
@@ -34,7 +34,7 @@ export const CartaConDetalles = () => {
 
   const { description, icon } = weather[0];
   const parametroMeteorologico = weather[0].main;
-  console.log('datos', datos)
+
   return (
     <div className='contenedor-detalles-pronostico'>
       <div className='detalles'>
@@ -72,8 +72,3 @@ export const CartaConDetalles = () => {
     </div>
   )
 }
-
-{/* <p className='temp-pronostico-texto'>
-          Temperatura min esperada: {conversor(unidad, temp_min)}°,
-          Temperatura max esperada: {conversor(unidad, temp_max)}°
-        </p> */}

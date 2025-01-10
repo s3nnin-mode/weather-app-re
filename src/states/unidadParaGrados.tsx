@@ -12,7 +12,6 @@ export const unidadDeMedidaSlice = createSlice({
     initialState,
     reducers: {
         setUnidad: (state, action: PayloadAction<string>) => {
-            console.log('LA UNIDAD LLEGÓ: ', action.payload)
             state.unidad = action.payload;
         }
     }

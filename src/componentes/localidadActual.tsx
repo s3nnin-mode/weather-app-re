@@ -8,7 +8,6 @@ import { ciudadesGuardadasProps } from '../interfacez&types/ciudadGuardada';
 
 interface Props {
   ocuparEspacio: () => void;
-  hayUnaInterfazAbierta: boolean;
 }
 
 export const useLocalidadGuardada = () => {
@@ -28,6 +27,7 @@ const useMiLocalidad = () => {
     const obtenerLocalidad = async () => {
       try {
         const { lat, lon } = miLocalidad;
+        console.log('localidad', miLocalidad)
         const localidadActual = await getUbicacion(lat, lon);
         if (localidadActual) {
           setMiUbicacion(localidadActual);
@@ -41,7 +41,7 @@ const useMiLocalidad = () => {
   return miUbicacion;
 }
 
-export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparEspacio}) => {
+export const LocalidadActual: React.FC<Props> = ({ocuparEspacio}) => {
 
   const dispatch = useAppDispatch();
   const miLocalidad = useMiLocalidad();
@@ -50,7 +50,7 @@ export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparE
     return <div>cargando...</div>
   }
 
-  const { name, state, country, lat, lon } = miLocalidad;
+  const { city, state, country, lat, lon } = miLocalidad;
 
   return (
     <div className='info-localidad-actual-contenedor'>
@@ -59,7 +59,7 @@ export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparE
         <i className='bi bi-geo-alt' onClick={() => actualizarDataApp(lat, lon, dispatch)}/>
       </div>
       <p className='localidad-actual-text font-google-delgada'>
-        { name || ''} {state || ''} {country || ''}
+        { city || ''} {state || ''} {country || ''}
       </p>
       <p className='coord-lat font-google-delgada'>
         <span>latitud:</span>
@@ -72,7 +72,7 @@ export const LocalidadActual: React.FC<Props> = ({hayUnaInterfazAbierta, ocuparE
       <button 
       className="btn btn-dark" 
       type="button" 
-      data-bs-toggle={hayUnaInterfazAbierta ? '' : 'collapse'}
+      data-bs-toggle='collapse'
       data-bs-target="#buscador-config" 
       aria-expanded="false" 
       aria-controls="collapseExample" 

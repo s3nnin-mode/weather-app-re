@@ -1,21 +1,30 @@
 import { Buscador } from "../buscador";
 import '../../stylesheet/submenus/interfazCambiarLocalidad.scss';
+import { useRef } from "react";
+import { Collapse } from "bootstrap";
 
 interface Props {
   liberarEspacio: () => void;
 }
 
 export const InterfazCambiarLocalidad: React.FC<Props> = ({liberarEspacio}) => {
+  const collapseRef = useRef(null);
+
+    const handleCollapse = () => {
+      if (collapseRef.current) {
+        const bsCollapse = Collapse.getInstance(collapseRef.current) || new Collapse(collapseRef.current);
+        bsCollapse.hide(); 
+        liberarEspacio(); 
+      }
+    };
+
     return (
-      <div className="collapse buscador-cambiar-localidad" id="buscador-config">
+      <div className="collapse buscador-cambiar-localidad" id="buscador-config" ref={collapseRef}>
         <button 
           className="btn btn-dark" 
           type="button" 
-          data-bs-toggle='collapse'
-          data-bs-target="#buscador-config" 
-          aria-expanded="false" 
-          aria-controls="collapseExample"
-          onClick={liberarEspacio} 
+         
+          onClick={handleCollapse} 
           >
           <i className="bi bi-arrow-left"></i>
         </button>

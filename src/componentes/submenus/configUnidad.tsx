@@ -1,31 +1,39 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setUnidad, unidadActual } from '../../states/unidadParaGrados';
 import '../../stylesheet/submenus/interfazCambiarUnidad.scss';
+import { Collapse } from 'bootstrap';
 
 interface Props {
     liberarEspacio: () => void;
+    hayUnaInterfazAbierta: boolean;
 }
 
-export const InterfazCambiarUnidad: React.FC<Props> = ({ liberarEspacio }) => {
+export const InterfazCambiarUnidad: React.FC<Props> = ({ liberarEspacio, hayUnaInterfazAbierta }) => {
     const dispatch = useAppDispatch();
     const unidad = useAppSelector(unidadActual);
+    const collapseRef = useRef(null);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.value)
         dispatch(setUnidad(e.target.value))
     }
 
+    const handleCollapse = () => {
+        if (collapseRef.current) {
+            const bsCollapse = Collapse.getInstance(collapseRef.current) || new Collapse(collapseRef.current);
+            bsCollapse.hide(); // Cierra el colapso manualmente
+            liberarEspacio(); // Llama a la función de React
+        }
+    };
+
     return (
-        <div className='collapse contenedor-para-configurar-unidad' id="config-unidad">
+        <div ref={collapseRef} className='collapse contenedor-para-configurar-unidad' id="config-unidad">
             <button 
                 className="btn btn-dark" 
                 type="button" 
-                data-bs-toggle="collapse"
-                data-bs-target="#config-unidad" 
-                aria-expanded="false" 
-                aria-controls="collapseExample" 
-                onClick={liberarEspacio}
+        
+                onClick={handleCollapse}
                 >
                 <i className="bi bi-arrow-left"></i>
             </button>

@@ -1,5 +1,5 @@
 export interface ciudadesGuardadasProps {
-    name: string;
+    city: string;
     state?: string;
     country?: string;
     lat: number;

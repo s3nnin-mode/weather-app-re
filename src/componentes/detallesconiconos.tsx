@@ -132,11 +132,11 @@ export const DetallesConIconos = () => {
         You can see data on polluting gases, such as (CO), (NO), (NO 2), (O 3), (SO 2), (NH 3) and particles (PM 2.5 and PM 10).
         </p>
 
-        <button className="btn btn-primary btn-ver-contaminacion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExampleE" aria-expanded="false" aria-controls="collapseExample">
+        <button className="btn btn-primary btn-ver-contaminacion" type="button" data-bs-toggle="collapse" data-bs-target="#contaminacion" aria-expanded="false" aria-controls="contaminacion">
           See scale for Air Quality Index levels
           <i className="bi bi-arrow-down"></i>
         </button>
-        <div className="collapse" id="collapseExampleE">
+        <div className="collapse" id="contaminacion">
         <div className='contaminacion-info'>
           <p className='font-google-delgada'>
             Carbon Monoxide 

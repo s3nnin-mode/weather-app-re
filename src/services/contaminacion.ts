@@ -7,7 +7,6 @@ export const getContaminacion = async (lat: number, lon: number) => {
         if (!contaminacion) {
             throw new Error(`Mapa error`);
         }
-        console.log(contaminacion)
         return contaminacion.data;
     } catch(error) {
         console.log(error)
