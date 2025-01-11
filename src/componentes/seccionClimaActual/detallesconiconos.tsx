@@ -2,7 +2,8 @@ import '../../stylesheet/weatherApp.scss';
 import { useAppSelector } from '../../hooks';
 import { contaminacionData, weatherData } from '../../states/weather';
 import { Molinos } from './molinos';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { Collapse } from 'bootstrap';
 
 interface Props {
   data: string;
@@ -32,13 +33,7 @@ const useContaminacion = () => {
   return components;
 }
 
-export const DetallesConIconos = () => {
-  const { velocidadDelViento, direccionDelViento } = useViento();
-  const { co, nh3, no, no2, o3, pm2_5, pm10, so2 } = useContaminacion();
-
-  const weather = useAppSelector(weatherData);
-  const { humidity, pressure }= weather.main;
-  const visibilidad = weather.visibility >= 1000 ? Math.floor(weather.visibility / 1000) : weather.visibility;
+const useFunciones = () => {
   const calidadDelAireCo = (concentracion: number) => {
     if (concentracion <= 4000) {
       return 'Good'
@@ -123,25 +118,81 @@ export const DetallesConIconos = () => {
     }
   };
 
+  return { calidadDelAireCo, calidadDelAireO3, calidadDelAireNO2, calidadDelAirePM25, calidadDelAirePM10,calidadDelAireSO2 }
+}
+
+export const DetallesConIconos = () => {
+  const { velocidadDelViento, direccionDelViento } = useViento();
+  const { co, nh3, no, no2, o3, pm2_5, pm10, so2 } = useContaminacion();
+  const { 
+    calidadDelAireCo, 
+    calidadDelAireO3,
+    calidadDelAireNO2,
+    calidadDelAirePM25,
+    calidadDelAireSO2, 
+    calidadDelAirePM10 
+  } = useFunciones();
+
+  const weather = useAppSelector(weatherData);
+  const { humidity, pressure }= weather.main;
+  const visibilidad = weather.visibility >= 1000 ? Math.floor(weather.visibility / 1000) : weather.visibility;
+
   const [collapse, setCollapse] = useState(false);
+  const collapseRef = useRef(null);
+
+  const handleCollapse = () => {
+    if (collapseRef.current) {
+      setCollapse(!collapse);
+      if (collapse) {
+        new Collapse(collapseRef.current, { toggle: false } ).show();
+      } else {
+        new Collapse(collapseRef.current, { toggle: false } ).hide();
+      }
+    }
+  }
 
   return (
     <div className='segundo-encabezado font-google'>
 
+      <div className='viento-contenedor'>
+        <Molinos />
+        <div className='viento-info'>
+          <p>Wind speed {convertirMsAKm(velocidadDelViento)}k/m</p>
+          <p>Wind deg {direccionDelViento}°</p>
+        </div>
+      </div>
+
+      <div className='detalles-con-iconos'>
+        <div className='detalle'>
+          <i className="bi bi-moisture" />
+          <p className='descripcion'>Humedad</p>
+          <p className='dato'>{humidity}%</p>
+        </div>
+        <div className='detalle'>
+          <i className="bi bi-eye" />
+          <p className='descripcion'>Visibilidad</p>
+          <p className='dato'>{visibilidad}k</p>
+        </div>
+        <div className='detalle'>
+          <i className="bi bi-thermometer" />
+          <p className='descripcion'>Presion</p>
+          <p className='dato'>{pressure}mb</p>
+        </div>
+      </div> 
+
       <div className='contaminacion-contenedor'>
         <h5>About pollution</h5>
-        <p className='descripcion-text-contaminacion'>
+        <p className='font-google-delgada'>
           You can see data on polluting gases, such as (CO), (NO), (NO 2), (O 3), (SO 2), (NH 3) and particles (PM 2.5 and PM 10).
         </p>
 
-        <button className="btn btn-primary btn-ver-contaminacion" type='button'
-        onClick={() => setCollapse(!collapse)} data-bs-toggle="collapse" data-bs-target="#contaminacion" aria-expanded={false} aria-controls="contaminacion">
+        <button className="btn btn-primary btn-ver-contaminacion" onClick={handleCollapse}>
           See scale for Air Quality Index levels
-          <i className="bi bi-arrow-down"></i>
+          <i className={`bi bi-arrow-${collapse ? 'down' : 'up'}`}></i>
         </button>
-        <div className='collapse' id="contaminacion">
+        <div className='collapse' id="contaminacion" ref={collapseRef}>
           
-          <div className='contaminacion-info'>
+          <div className='contaminacion-info' ref={collapseRef}>
             <p className='font-google-delgada'>
               Carbon Monoxide 
               <span className={calidadDelAireCo(co)}>
@@ -185,32 +236,6 @@ export const DetallesConIconos = () => {
             </p>
           </div>
           
-        </div>
-      </div>
-
-      <div className='viento-contenedor'>
-        <Molinos />
-        <div className='viento-info'>
-          <p>Wind speed {convertirMsAKm(velocidadDelViento)}k/m</p>
-          <p>Wind deg {direccionDelViento}°</p>
-        </div>
-      </div>
-
-      <div className='detalles-con-iconos'>
-        <div className='detalle'>
-          <i className="bi bi-moisture" />
-          <p className='descripcion'>Humedad</p>
-          <p className='dato'>{humidity}%</p>
-        </div>
-        <div className='detalle'>
-          <i className="bi bi-eye" />
-          <p className='descripcion'>Visibilidad</p>
-          <p className='dato'>{visibilidad}k</p>
-        </div>
-        <div className='detalle'>
-          <i className="bi bi-thermometer" />
-          <p className='descripcion'>Presion</p>
-          <p className='dato'>{pressure}mb</p>
         </div>
       </div>
 
