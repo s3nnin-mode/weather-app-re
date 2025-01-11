@@ -1,0 +1,70 @@
+#perfil-config {
+    padding: 10px;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+
+    form {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            width: 80%;
+            position: relative;
+
+
+            input {
+                height: 30px;
+                border-radius: 8px;
+                outline: none;
+                border: none;
+                font-style: italic;
+                font-weight: 500;
+                padding-left: 3px;
+            }
+
+            .error-cambiar-nombre, .error-cambiar-foto {
+                font-size: 15px;
+                color: red;
+                font-style: italic;
+                bottom: -20px;
+            }
+        }
+
+        button {
+            margin-top: 1.4rem;
+            height: 100%;
+            padding: 5px 7px;
+            max-width: 50px;
+            font-size: 14px;
+            color: orange;
+            font-family: "Quicksand", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .cambiar-nombre-mensaje, .cambiar-foto-mensaje {
+            font-size: 14px;    
+            white-space: nowrap; 
+            margin-top: 3px;  
+        }
+    }
+
+    .btn-cerrar-sesion {
+        color: rgb(231, 63, 63);
+        width: 100%;
+        margin-top: 1rem;
+        font-family: "Basic", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .btn-cerrar-sesion:hover {
+        color: white;
+    }
+}

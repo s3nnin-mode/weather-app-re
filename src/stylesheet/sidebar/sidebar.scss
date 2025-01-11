@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.offcanvas {
+    background-color: rgb(25, 25, 25) !important;
+    color: white !important;
+    width: 300px !important;
+    max-width: 300px !important;
+
+    .offcanvas-header {
+        .icono-header-sidebar {
+            color: orange;
+            padding-right: 4px;
+        }
+
+        .btn-close:hover {
+            background-color: transparent;
+            border-bottom: 1px solid;
+        }
+    }
+
+    .offcanvas-body {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+               
+        .btns {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 0 12px;
+            scrollbar-width: thin; 
+            scrollbar-color: rgb(17, 17, 17) black;
+            animation: MostrarBtnsDeNuevo .4s linear both 300ms;   
+        
+            .btn-login {
+                width: 100%;
+                color: orange;
+        
+                .texto-desabilitado {
+                    font-style: italic;
+                    color: white;
+                }
+            }
+        }
+
+        .ocultar-btns {
+            display: none;
+        }
+    }
+}
+
+.btn-dark {
+    max-height: 30%;
+    border: none;
+    color: orange;
+}
+
+.btn-dark:hover {
+    color: white;
+}
+
+@keyframes MostrarBtnsDeNuevo {
+    from {
+        opacity: 0;
+        display: none;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .offcanvas {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}

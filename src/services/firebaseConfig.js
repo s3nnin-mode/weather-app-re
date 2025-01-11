@@ -140,8 +140,13 @@ export const updateNombreUser = async(nombre) => {
   const user = auth.currentUser;
 
   const docRef = doc(db, 'users', user.uid);
-  await updateDoc(docRef, { name: nombre });
-  console.log('nombre de usuario cambiado correctamente')
+  try {
+    await updateDoc(docRef, { name: nombre });
+    return true;
+  } catch(error) {
+    return false
+  }
+  
 }
 
 export const updateFotoPerfil = async(url) => {

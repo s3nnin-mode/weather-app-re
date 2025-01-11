@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { WeatherMain } from './rutas/home';
-import { FormularioLogin } from './rutas/login';
-import { Formularios } from './formularios';
+import { Formularios } from './rutas/formularios';
 
 export const WeatherApp = () => {
   

@@ -1,15 +1,14 @@
 import { Alerta } from "../alert"
-import { BtnAbrirSidebar } from "../btnAbrirSidebar"
-import { Buscador } from "../buscador"
-import { DetallesConIconos } from "../detallesconiconos"
-import { LocalidadYDetalles } from "../localidadyDetalles"
-import { Pronostico } from "../pronosticoCartas"
-import { Sidebar } from "../sidebar"
-import { Temperatura } from "../temp"
+import { BtnAbrirSidebar } from "../seccionClimaActual/btnAbrirSidebar"
+import { Buscador } from "../reusables/buscador"
+import { DetallesConIconos } from "../seccionClimaActual/detallesconiconos"
+import { LocalidadYDetalles } from "../seccionClimaActual/localidadyDetalles"
+import { Pronostico } from "../seccionPronostico/pronostico"
+import { Sidebar } from "../sidebar/sidebar"
+import { Temperatura } from "../seccionClimaActual/temp"
 import { VientoYSol } from "../vientoysol";
 
 import '../../stylesheet/weatherApp.scss';
-import { Route, Routes } from "react-router-dom"
 
 export const WeatherMain = () => {
   return (
@@ -31,7 +30,6 @@ export const WeatherMain = () => {
         </section>
         <Alerta />
       </div>
-      
     </>
   )
 }

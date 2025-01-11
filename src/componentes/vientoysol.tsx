@@ -1,8 +1,7 @@
-import { Molinos } from "./molinos";
+import { Molinos } from "./seccionClimaActual/molinos";
 import { useAppSelector } from "../hooks";
 import { weatherData } from "../states/weather";
 import '../stylesheet/vientoysol.scss';
-import { SunChart } from "./graficadelsol";
 import { useEffect, useState } from "react";
 import { getMapa } from "../services/mapa";
 import { AxiosResponse } from "axios";
