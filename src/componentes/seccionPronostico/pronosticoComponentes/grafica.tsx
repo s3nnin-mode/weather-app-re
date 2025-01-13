@@ -48,7 +48,7 @@ export const CustomChart = () => {
         },
       },
       layout: {
-        background: { type: ColorType.Solid, color: 'rgb(16, 15, 15)' },
+        background: { type: ColorType.Solid, color: 'transparent' },
         textColor: 'white',
       },
       grid: {

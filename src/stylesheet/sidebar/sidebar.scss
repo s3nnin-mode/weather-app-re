@@ -11,6 +11,11 @@
     width: 300px !important;
     max-width: 300px !important;
 
+    background: rgb(12,12,14);
+    background: linear-gradient(90deg, rgba(12,12,14,1) 0%, rgba(19,21,24,1) 46%, rgba(35,43,47,1) 100%);  
+
+    background: rgb(12,12,14);
+    background: linear-gradient(90deg, rgba(12,12,14,1) 0%, rgba(24,26,27,1) 100%);
     .offcanvas-header {
         .icono-header-sidebar {
             color: orange;

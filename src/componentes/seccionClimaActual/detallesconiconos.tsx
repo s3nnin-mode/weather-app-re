@@ -125,12 +125,8 @@ export const DetallesConIconos = () => {
   const { velocidadDelViento, direccionDelViento } = useViento();
   const { co, nh3, no, no2, o3, pm2_5, pm10, so2 } = useContaminacion();
   const { 
-    calidadDelAireCo, 
-    calidadDelAireO3,
-    calidadDelAireNO2,
-    calidadDelAirePM25,
-    calidadDelAireSO2, 
-    calidadDelAirePM10 
+    calidadDelAireCo, calidadDelAireO3, calidadDelAireNO2,
+    calidadDelAirePM25, calidadDelAireSO2, calidadDelAirePM10 
   } = useFunciones();
 
   const weather = useAppSelector(weatherData);
@@ -141,9 +137,10 @@ export const DetallesConIconos = () => {
   const collapseRef = useRef(null);
 
   const handleCollapse = () => {
+    setCollapse(!collapse);
+    const isCollapse = !collapse;
     if (collapseRef.current) {
-      setCollapse(!collapse);
-      if (collapse) {
+      if (isCollapse) {
         new Collapse(collapseRef.current, { toggle: false } ).show();
       } else {
         new Collapse(collapseRef.current, { toggle: false } ).hide();
@@ -153,42 +150,63 @@ export const DetallesConIconos = () => {
 
   return (
     <div className='segundo-encabezado font-google'>
-
-      <div className='viento-contenedor'>
+      {/* <div className='molinos-y-detalles'> */}
+      
+      {/* <div className='viento-contenedor'>
         <Molinos />
+        
         <div className='viento-info'>
-          <p>Wind speed {convertirMsAKm(velocidadDelViento)}k/m</p>
-          <p>Wind deg {direccionDelViento}°</p>
+            <p className='font-google-delgada'>Wind speed {convertirMsAKm(velocidadDelViento)}k/m</p>
+            <p className='font-google-delgada'>Wind deg {direccionDelViento}°</p>
         </div>
-      </div>
+      </div> */}
 
       <div className='detalles-con-iconos'>
         <div className='detalle'>
           <i className="bi bi-moisture" />
-          <p className='descripcion'>Humedad</p>
-          <p className='dato'>{humidity}%</p>
+          <div>
+            {/* <i className="bi bi-moisture" /> */}
+            <p className='descripcion font-google-delgada'>Humedad</p>
+            <p className='dato font-google-delgada'>{humidity}%</p>
+          </div>
         </div>
         <div className='detalle'>
           <i className="bi bi-eye" />
-          <p className='descripcion'>Visibilidad</p>
-          <p className='dato'>{visibilidad}k</p>
+          <div>
+          <p className='descripcion font-google-delgada'>Visibilidad</p>
+          <p className='dato font-google-delgada'>{visibilidad}k</p>
+          </div>
         </div>
         <div className='detalle'>
           <i className="bi bi-thermometer" />
-          <p className='descripcion'>Presion</p>
-          <p className='dato'>{pressure}mb</p>
+          <div>
+          <p className='descripcion font-google-delgada'>Presion</p>
+          <p className='dato font-google-delgada'>{pressure}mb</p>
+          </div>
         </div>
       </div> 
+
+      <div className='viento-contenedor'>
+        <Molinos />
+        
+        <div className='viento-info'>
+            <p className='font-google-delgada'>Wind speed {convertirMsAKm(velocidadDelViento)}k/m</p>
+            <p className='font-google-delgada'>Wind deg {direccionDelViento}°</p>
+        </div>
+      </div>
+      {/* </div>  */}
+
+
 
       <div className='contaminacion-contenedor'>
         <h5>About pollution</h5>
         <p className='font-google-delgada'>
-          You can see data on polluting gases, such as (CO), (NO), (NO 2), (O 3), (SO 2), (NH 3) and particles (PM 2.5 and PM 10).
+          You can see data on polluting gases, such as (CO) and particles (PM 2.5 and PM 10).
         </p>
 
-        <button className="btn btn-primary btn-ver-contaminacion" onClick={handleCollapse}>
+        <button className="btn btn-ver-contaminacion" onClick={handleCollapse}>
           See scale for Air Quality Index levels
-          <i className={`bi bi-arrow-${collapse ? 'down' : 'up'}`}></i>
+          <i className={`bi bi-arrow-${collapse ? 'up' : 'down'}`}></i>
         </button>
         <div className='collapse' id="contaminacion" ref={collapseRef}>
           

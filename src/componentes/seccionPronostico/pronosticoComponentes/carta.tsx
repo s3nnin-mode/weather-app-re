@@ -19,7 +19,7 @@ export const CartaInfo: React.FC<PropsCarta> = ({ dia, srcImg, tempMax, tempMin,
 
 	return (
     <div id={fecha} className={`carta font-google-delgada ${estilo}`} onClick={() => handleClick()}>
-      <p className='nombre-del-dia'>{dia}</p>
+      <p className='nombre-del-dia font-google-delgada'>{dia}</p>
       <img src={`http://openweathermap.org/img/wn/${srcImg}@2x.png`} alt='icono representativo del clima actual' />
       <p className='grados'>
         <span className='grados-max-text'>Max {conversor(unidad, tempMax)}°</span>

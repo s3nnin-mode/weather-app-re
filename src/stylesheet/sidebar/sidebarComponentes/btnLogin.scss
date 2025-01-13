@@ -1,0 +1,17 @@
+.btn-login {
+    border: none !important;
+    color: black !important;
+    width: 100%;
+    background-color: rgb(127, 52, 6, .8) !important;
+    box-shadow: inset 0 2px 4px black !important;
+
+    font-family: "Quicksand", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 500 !important;
+    font-style: normal;
+}
+
+.btn-login:hover {
+    color: white !important;
+    background-color: transparent !important;
+}

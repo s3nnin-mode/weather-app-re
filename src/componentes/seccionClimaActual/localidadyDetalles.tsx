@@ -22,12 +22,12 @@ export const LocalidadYDetalles = () => {
 
 	return (
 		<div className='localidad-mas-detalles'>
-      <p className='localidad'>{`${name || ''} ${state || ''} ${country || ''}`}</p>
+      <p className='localidad font-google-delgada'>{`${name || ''} ${state || ''} ${country || ''}`}</p>
       <p className='hora'>{currentTime}</p> 
       <p className='fecha'>
         {diaLegible(fechaDeHoy, '/')} {dia}, {mesActual}
       </p>
-      <p className='font-google descripcion coord'>
+      <p className='font-google-delgada descripcion coord'>
           Coord: Lat <span className='font-google-delgada dato'>{lat}</span>, Lon <span className='google-font-delgada dato'>{lon}</span>
       </p>
 			<p className='descripcion-del-cielo font-google-delgada descripcion'>{descripcionDelCielo}, Nubosidad <span className="dato">{nubosidad}%</span></p>

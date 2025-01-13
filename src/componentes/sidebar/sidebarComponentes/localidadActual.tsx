@@ -70,7 +70,7 @@ export const LocalidadActual: React.FC<Props> = ({ocuparEspacio}) => {
         <span>{lon}</span>
       </p>
       <button 
-      className="btn btn-dark" 
+      className="btn font-google-delgada" 
       type="button" 
       data-bs-toggle='collapse'
       data-bs-target="#buscador-config" 
