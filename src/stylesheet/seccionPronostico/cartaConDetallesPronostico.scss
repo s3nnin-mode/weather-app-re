@@ -31,8 +31,18 @@
             gap: 15px;
             flex-wrap: wrap;
             
+            div {
+                p {
+                    color: gray;
+                    span {
+                        color: white;
+                    }
+                }
+            }
+            
             .presion-texto, .presion-suelo {
                 display: flex;
+
             }
 
             .velocidad-viento, .humedad-texto {

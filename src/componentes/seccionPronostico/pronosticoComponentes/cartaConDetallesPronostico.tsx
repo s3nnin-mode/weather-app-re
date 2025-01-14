@@ -44,19 +44,19 @@ export const CartaConDetalles = () => {
         <div className='detalles-body'>
           <div className='presion-texto'>
             <i className="bi bi-thermometer" />
-            <p>PSNM {pressure}mb</p>
+            <p style={{color: 'grey'}}>PSNM <span style={{color: 'white'}}>{pressure}mb</span></p>
           </div>
           <div className='presion-suelo'>
-            <p>PSN {grnd_level}hPa</p>
+            <p>PSN <span>{grnd_level}hPa</span></p>
           </div>
           <div className='velocidad-viento'>
             <i className="bi bi-wind icono-viento" />
-            <p>viento {convertirMsAKm(speed)}k/h</p>
+            <p>viento <span>{convertirMsAKm(speed)}k/h</span></p>
           </div>
           <div className='direccion-viento'>
             <i className="bi bi-wind icono-viento" />
             <i className="bi bi-compass"></i>
-            <p>{deg}°</p>
+            <p><span>{deg}°</span></p>
           </div>
           <div className='visibilidad'>
             <i className='bi bi-eye' />
@@ -64,7 +64,7 @@ export const CartaConDetalles = () => {
           </div>
           <div className='humedad-texto'>
             <i className="bi bi-moisture" />
-            <p>Humidity {humidity || 'cargando..'}%</p>
+            <p>Humedad {humidity || 'cargando..'}%</p>
           </div>
         </div>
       </div>

@@ -24,10 +24,14 @@ export const Buscador: React.FC<PropsBuscador> = ({ esConfig }) => {
     setError(sugerenciasData.length === 0);
   }
 
-  const componentes = sugerencias.map(obj => {
-    const { city, state, country, lat, lon } = obj;
+  const componentes = sugerencias.map((obj, index) => {
+    const { name, state, country, lat, lon } = obj;
     return <LocalidadLi 
-    city={city} state={state} country={country} lat={lat} lon={lon} key={lat + lon + city} 
+    name={name} 
+    state={state} 
+    country={country} 
+    lat={lat} lon={lon}
+    key={lat + lon + index} 
     esConfig={esConfig} />
   });
 

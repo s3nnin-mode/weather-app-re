@@ -17,7 +17,7 @@ export const CiudadesVisitadas = () => {
 
   const ciudades = historial.length > 0 ? historial.map(ciudad => {
     return <LocalidadLi 
-    city={ciudad.city} 
+    name={ciudad.city} 
     state={ciudad.state} 
     country={ciudad.country} 
     lat={ciudad.lat} 

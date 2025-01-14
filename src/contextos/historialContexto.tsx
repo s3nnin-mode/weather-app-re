@@ -29,8 +29,14 @@ export const HistorialDeNavegacion: React.FC<PropsWithChildren<{}>> = ({ childre
   }
 
   const agregarLocalidadAHistorial = async (ciudad: ciudadesGuardadasProps) => {
+    const limiteAlcanzado = historial.some(city => city.lat === ciudad.lat && city.lon === ciudad.lon);
+    if (limiteAlcanzado) {
+      return;
+    }
+
     const nuevoHistorial = [...historial, ciudad];
-    setHistorial(nuevoHistorial);      //React no tiene forma de saber cuando cambia ocalstorage y firebase, por eso uso estos datos a nivel local para que este sincronizado con el localstorage o firebase
+    console.log('nuevi historial', nuevoHistorial)
+    setHistorial(nuevoHistorial);      //React no tiene forma de saber cuando cambia el localstorage y firebase, por eso uso estos datos a nivel local para que estén sincronizados con el localstorage o firebase
     localStorage.setItem('ciudadesVisitadas', JSON.stringify(nuevoHistorial));
 
     const usuarioLogeado = await usuarioAutenticado();

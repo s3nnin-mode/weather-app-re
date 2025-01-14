@@ -86,24 +86,20 @@ export const loginUser = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    console.log('login exitoso, user: ', user);
     return 'Login exitoso';
   })
   .catch((error) => {
-    const errorCode = error.code;
+    const errorCode = error.code.trim();
     const errorMessage = error.message;
-    console.log('error login: ', errorCode, errorMessage);
+    console.log('error login errorCode: ', errorCode);
+    console.log('error login message: ', errorMessage)
     switch (error.code) {
-      case 'auth/user-not-found':
-        return 'No hay una cuenta registrada con este correo electrónico.';
-      case 'auth/wrong-password':
-        return 'La contraseña ingresada es incorrecta.';
       case 'auth/invalid-email':
         return 'El formato del correo electrónico no es válido.';
       case 'auth/too-many-requests':
         return 'Demasiados intentos fallidos. Inténtalo de nuevo más tarde.';
       case 'auth/invalid-credential':
-        return 'Email no encontrado, verifica que el correo este registrado'
+        return 'Credenciales invalidas, porfavor verifica tu correo y contraseña.'
       default:
         return 'Ocurrió un error inesperado. Inténtalo más tarde.';
     } 

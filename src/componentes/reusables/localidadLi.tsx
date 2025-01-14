@@ -5,7 +5,7 @@ import { actualizarDataApp } from "../../utils/estados";
 import { useContext, useEffect } from "react";
 import { MiLocalidadContexto } from "../../contextos/datosUsuarioContexto";
 
-export const LocalidadLi: React.FC<PropsLocalidadLi> = ({city, state, country, lat, lon, esConfig, esHistorial}) => {
+export const LocalidadLi: React.FC<PropsLocalidadLi> = ({name, state, country, lat, lon, esConfig, esHistorial}) => {
   const dispatch = useAppDispatch();
   const { agregarLocalidadAHistorial, borrarLocalidadDeHistorial } = useHistorialContext();
   const contextoUsuario = useContext(MiLocalidadContexto);
@@ -20,7 +20,7 @@ export const LocalidadLi: React.FC<PropsLocalidadLi> = ({city, state, country, l
       contextoUsuario.actualizarLocalidad({lat, lon});
     }
     if (!esHistorial && !esConfig) {                                     //Este componente LocalidadLi es usado en 3 casos: para el historial de navegacion, para cambiar(configurar) tu nueva localidad y para mostrar los resultados al buscar una ciudad especifica en el buscador arriba a la derecha
-      agregarLocalidadAHistorial({city: city || '', state: state || '', country: country || '', lat: lat, lon: lon});
+      agregarLocalidadAHistorial({city: name || '', state: state || '', country: country || '', lat: lat, lon: lon});
     }
   }
 
@@ -33,7 +33,7 @@ export const LocalidadLi: React.FC<PropsLocalidadLi> = ({city, state, country, l
     <li className={`list-group-item font-google-delgada`} onClick={handleClick}>
       <div>
         <i className="bi bi-geo-alt-fill" />
-        <span>{city || ''} {state || ''} {country || ''}</span>
+        <span>{name || ''} {state || ''} {country || ''}</span>
       </div>
       <i                                                           
       className='bi bi-trash icon-borrar' 
