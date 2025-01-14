@@ -13,6 +13,7 @@
     // border: 2px solid rgb(148, 165, 0);
     background-color: #CC5500;
     background-color: #382506;
+    
     box-shadow: inset 2px 4px 8px black;
     background-color: rgb(127, 52, 6, .8);
     box-shadow: inset 0 2px 4px black;
@@ -32,6 +33,11 @@
             color: chartreuse;
             color: orange;
         }
+    }
+
+    i {
+        margin-top: 3px;
+        color: white;
     }
 }
 

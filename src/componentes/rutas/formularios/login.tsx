@@ -85,16 +85,16 @@ export const FormularioLogin = () => {
       </div>
 
       {/*MODAL PARA PRESENTAR LA APP SI SE INICIÓ SESIÓN EXITOSAMENTE*/}
-      <div className="modal fade" tabIndex={-1} ref={modalExitosoRef} aria-hidden={true}>
+      <div className="modal fade mostrar-modal-exitoso" tabIndex={-1} ref={modalExitosoRef} aria-hidden={true}>
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-              <h2>Bienvendo a mi aplicacion del clima!.</h2>
+              <h2>Bienvendo a mi aplicacion del clima!</h2>
               <p>
-                Esta app la he desarrrollado con el fin de mejorar mis habilidades de programacion y aprender nuevas tecnologias que está de más decirlo si no eres desarrollador o simplemente no te interesa, 
+                Hola, antes que nada, te agradezco que le hayas dado la oportunidad a esta app del clima aunque sea para probarla o darme feedback :). Esta app la he desarrrollado con el fin de mejorar mis habilidades de programacion y aprender nuevas tecnologias como typescript, a su vez me ayudó a famirializarme más con react y su entorno en cuanto a hooks.
               </p>
               <p>
-                Es cierto que es mi primer app desarrollada pero no la subestimes, tienes a disponibilidad lo que cualquier aplicacion del clima tendria, he aqui un resumen:
+                Es cierto que es mi primer app desarrollada pero me he encargado de hacerla lo mas 'útil' posible, ya que tienes a disponibilidad lo que cualquier aplicacion del clima tendría, he aqui un resumen:
               </p>
               <ul>
                 <li>
@@ -104,11 +104,16 @@ export const FormularioLogin = () => {
                   Si permites obtener la geolocalización la aplicacion se configurará automaticamente para mostrar el clima de tu localidad.
                 </li>
                 <li>
-                  Puedes configurar y cambiar tu localidad predeterminada si te mudas a otra ciudad.
+                  Puedes configurar y cambiar tu localidad predeterminada, esto es util por si te mudas de ciudad o para no tener que buscar repetitivamente tu localidad cada vez que entras.
                 </li>
                 <li>
-                  Si probaste la app sin registrarte habrás notado que funciona sin tener una cuenta logeada.
-                  Asi que si, puedes usarla sin tener que crear una cuenta si es que no quieres.
+                  Puedes ver el pronostico para los proximos cinco dias y una grafica que detallará la temperatura en el transcurso del dia junto a su respectiva hora pronosticada.
+                </li>
+                <li>
+                  Puedes usar la app sin necesidad de registrarte. Tanto tu historial como tu localidad se aguardaran en tu localstorage o cuenta, dependiendo como uses la app.
+                </li>
+                <li>
+                  Una vez registrado, puedes colocarte un nombre y foto de perfil!
                 </li>
               </ul>
             </div>

@@ -28,8 +28,10 @@ export const PerfilUsuario: React.FC<PropsPerfil> = ({ocuparEspacio}) => {
         <img 
         src={
           misDatos.photoUrl !== '' ? misDatos.photoUrl : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'} alt="foto de perfil sin foto" />
-        <p className='name-user font-google-delgada'>Hi! <span>{misDatos.name || ''}</span></p>
-        {/* <i className='bi bi-arrow-right'></i> */}
+        <p className='name-user font-google-delgada'>
+          Hi! <span>{misDatos.name || ''}</span>
+        </p>
+        <i className="bi bi-gear-fill"></i>        {/* <i className='bi bi-arrow-right'></i> */}
     </div>
   )
 }

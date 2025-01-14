@@ -5,7 +5,7 @@ export const BtnRegistro = () => {
   return (
     <Link to='/formulario/login'>
       <button className='btn-login btn font-google-delgada'>
-        Registrarse 
+        Iniciar sesión
         {/* <span className='texto-desabilitado'>(en beta..)</span> */}
       </button>
     </Link>

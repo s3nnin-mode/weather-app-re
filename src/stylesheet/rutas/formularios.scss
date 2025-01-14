@@ -90,3 +90,31 @@
         }
     }
 }
+
+.mostrar-modal-exitoso {
+    
+    .modal-body {
+        background-color: aliceblue;
+        p {
+            margin: 0;
+            text-align: left;
+
+            font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+        }
+        ul {
+            margin-top: 1rem;
+            li {
+                margin: 0;
+                padding: 0;
+                text-align: left;
+                font-family: Arial, sans-serif; /* Usa fuentes modernas */
+                font-size: 16px; /* Ajusta el tamaño según el diseño */
+                line-height: 1.5; /* Mejora la legibilidad */
+                margin-bottom: 10px; /* Espacio entre elementos */
+            }
+        }
+    }
+}
