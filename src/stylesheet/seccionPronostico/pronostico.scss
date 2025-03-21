@@ -1,47 +1,119 @@
 .cartas-y-grafica {
     width: 55%;
+    width: 100%;
     min-height: 400px;
+    // max-height: 500px;
+    max-height: 400px;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     gap: 5px;
-    overflow-x: hidden;
+    // overflow-x: hidden;
 
-    .contenedor-cartas {
-        // height: 50%;
+    .cartas-y-calidad-aire {
+        width: 50%;
 
-        .descripcion {
-            margin-bottom: 1rem;
+        .contenedor-cartas {
+            // height: 50%;
+    
+            .descripcion {
+                margin-bottom: 1rem;
+            }
+            .cartas {
+                display: flex;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+    
+            .cartas:hover {
+                transition: .3s;
+                overflow: visible;
+            }
         }
-        .cartas {
-            display: flex;
-            border-radius: 8px;
-            overflow: hidden;
+    
+        h5 {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            color: rgb(255, 165, 0, .9);
         }
-
-        .cartas:hover {
-            transition: .3s;
-            overflow: visible;
-        }
-    }
-
-    h5 {
-        margin-top: 1rem;
-        margin-bottom: 0;
-        color: rgb(255, 165, 0, .9);
     }
 
     .contenedor-grafica {
+        // overflow: hidden;
+        width: 50%;
         margin-top: 5px;
         padding: 9px;
-        border-radius: 5px;
-        box-shadow: inset 0 2px 4px black;
-        // .text-fecha-grafica {
-        //     text-align: center;
-        //     font-style: italic;
-        //     border-bottom: 1px dotted grey;
-        //     padding: 10px 0;
-        // }
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+
+        .paisaje-fondo {
+            min-height: 40%;
+            opacity: .9;
+            height: 40%;
+            // overflow: hidden;
+            position: relative;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 14px;
+                object-fit: cover;
+                position: absolute;
+            }
+        }
+
+        .grafica {
+        }
+        border: 1px solid rgba(0, 0, 0, 0.3);
     }
+}
+
+@media screen and (max-width: 920px) {
+    .cartas-y-grafica {
+        flex-direction: column;
+        height: 100%;
+        max-height: 100%;
+        .cartas-y-calidad-aire,
+        .contenedor-grafica {
+            width: 100%;
+        }
+
+        .contenedor-grafica {
+            .paisaje-fondo {
+                // min-height: 40%;
+                // height: 40%;
+                min-height: 150px;
+                max-height: 200px;
+            }
+
+            .grafica {
+                min-height: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 620px) {
+    // .cartas-y-grafica {
+    //     flex-direction: column;
+    //     height: 100%;
+    //     max-height: 100%;
+    //     .cartas-y-calidad-aire,
+    //     .contenedor-grafica {
+    //         width: 100%;
+    //     }
+
+    //     .contenedor-grafica {
+    //         .paisaje-fondo {
+    //             // min-height: 40%;
+    //             // height: 40%;
+    //             min-height: 200px;
+    //         }
+
+    //         .grafica {
+    //             min-height: 200px;
+    //         }
+    //     }
+    // }
 }
 
 @media screen and (max-width: 480px) {

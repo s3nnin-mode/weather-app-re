@@ -1,0 +1,75 @@
+.weather-container {
+  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.weather-element {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100px);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* 🌧 Lluvia */
+.rain .weather-element {
+  background: rgba(255, 255, 255, 0.6);
+  width: 2px;
+  height: 15px;
+  animation: fall linear infinite;
+}
+
+/* ❄ Nieve */
+.snow .weather-element {
+  background: white;
+  animation: fall linear infinite;
+}
+
+/* 🍂 Hojas moviéndose */
+.autumn .weather-element {
+  background: orange;
+  transform: rotate(45deg);
+  animation: fall linear infinite, sway 2s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* ⚡ Tormenta */
+.storm .weather-element {
+  background: rgba(255, 255, 255, 0.6);
+  width: 3px;
+  height: 20px;
+  animation: fall linear infinite;
+}
+
+.lightning {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: flash 5s linear infinite;
+}
+
+@keyframes flash {
+  0%, 90% { opacity: 0; }
+  92% { opacity: 1; }
+  94% { opacity: 0; }
+}

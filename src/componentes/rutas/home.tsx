@@ -9,8 +9,14 @@ import { Temperatura } from "../seccionClimaActual/temp"
 import { VientoYSol } from "../vientoysol";
 
 import '../../stylesheet/weatherApp.scss';
+import { useAppSelector } from "../../hooks"
+import { weatherData } from "../../states/weather"
+import { LluviaAnimacion } from "../reusables/lluviaAnimacion"
+import WeatherEffect from "../reusables/animacionClima"
 
 export const WeatherMain = () => {
+  const weather = useAppSelector(weatherData);
+  console.log(weather);
   return (
     <>
       <div className='App container-fluid'>
@@ -25,8 +31,31 @@ export const WeatherMain = () => {
           <DetallesConIconos />
         </section>
         <section className='seccion-tablas'>
+          {/* {
+            weather.weather[0].description.includes('rain') && (
+              <div className='animacion-lluvia'>
+                <WeatherEffect weatherType="storm" />
+              </div>
+            )
+          } */}
+          {/* <div className='paisaje-fondo'>
+            <img src="https://png.pngtree.com/thumb_back/fw800/background/20220529/pngtree-landscape-panorama-horizontal-daylight-climate-photo-image_1035581.jpg" alt="paisaje" />
+            <WeatherEffect weatherType="storm" />
+          </div> */}
           <Pronostico />
-          <VientoYSol />
+          {/* <div className='paisaje-fondo'>
+            <img src="https://png.pngtree.com/thumb_back/fw800/background/20220529/pngtree-landscape-panorama-horizontal-daylight-climate-photo-image_1035581.jpg" alt="paisaje" />
+          </div> */}
+
+          {/* {
+            weather.weather[0].description.includes('rain') && (
+              <div className='animacion-lluvia'>
+                <WeatherEffect weatherType="storm" />
+              </div>
+            )
+          } */}
+          
+          {/* <VientoYSol /> */}
         </section>
         <Alerta />
       </div>

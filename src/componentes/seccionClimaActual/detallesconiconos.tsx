@@ -201,11 +201,11 @@ export const DetallesConIconos = () => {
       <div className='contaminacion-contenedor'>
         <h5>About pollution</h5>
         <p className='font-google-delgada'>
-          You can see data on polluting gases, such as (CO) and particles (PM 2.5 and PM 10).
+          Enterate sobre gases contaminantes, como (CO) y partículas (PM 2,5 y PM 10).
         </p>
 
         <button className="btn btn-ver-contaminacion" onClick={handleCollapse}>
-          See scale for Air Quality Index levels
+          Ver escala de niveles del índice de calidad del aire
           <i className={`bi bi-arrow-${collapse ? 'up' : 'down'}`}></i>
         </button>
         <div className='collapse' id="contaminacion" ref={collapseRef}>

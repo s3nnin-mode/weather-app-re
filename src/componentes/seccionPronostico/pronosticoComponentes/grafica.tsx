@@ -59,7 +59,8 @@ export const CustomChart = () => {
         visible: false,
       },
       width: chartContainerRef.current.clientWidth,
-      height: 200
+      height: 150,
+      
     });
 
     const areaSeries = chart.addAreaSeries({
@@ -103,7 +104,7 @@ export const CustomChart = () => {
     <div
       ref={chartContainerRef}
       style={{
-        height: '200px',
+        height: '150px',
         width: '100%',
         position: 'relative',
       }}
