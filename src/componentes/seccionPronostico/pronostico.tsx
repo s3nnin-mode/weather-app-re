@@ -84,16 +84,18 @@ export const Pronostico = () => {
       setBackground(conditions['rain'])
     } else if (parametroMeteorologico.includes('snow')) {
       setBackground(conditions['snow'])
-    } else if (parametroMeteorologico.includes('thunderstorm')) {
+    } else if (parametroMeteorologico.includes('thunderstorm') || parametroMeteorologico.includes('storm')) {
       setBackground(conditions['thunderstorm'])
     } else if (parametroMeteorologico.includes('drizzle')) {
       setBackground(conditions['drizzle'])
     } else if (parametroMeteorologico.includes('mist') || parametroMeteorologico.includes('fog')) {
       setBackground(conditions['mist'])
     } else {
-      setBackground("default.jpg");
+      setBackground('https://media.nbcsandiego.com/2019/09/sky-sunny-clouds-cloudy-3768.jpg?quality=85&strip=all&resize=1200%2C675');
     }
   }, [parametroMeteorologico]);
+
+
 
   // if (!datos) {
   //   return <div>Cargando datos...</div>
@@ -116,7 +118,8 @@ export const Pronostico = () => {
       <div className='contenedor-grafica'>
         <div className='paisaje-fondo'>
           <img 
-          src={background}
+          src="https://media.nbcsandiego.com/2019/09/sky-sunny-clouds-cloudy-3768.jpg?quality=85&strip=all&resize=1200%2C675"
+          // src={background}
           alt="paisaje" 
           />
           {
@@ -127,11 +130,6 @@ export const Pronostico = () => {
           {
             description.includes('snow') && (
               <WeatherEffect weatherType='snow' />
-            )
-          }
-          {
-            description.includes('autumn') && (
-              <WeatherEffect weatherType='autumn' />
             )
           }
           {
