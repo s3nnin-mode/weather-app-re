@@ -95,12 +95,6 @@ export const Pronostico = () => {
     }
   }, [parametroMeteorologico]);
 
-
-
-  // if (!datos) {
-  //   return <div>Cargando datos...</div>
-  // }
-
   return (
     <div className='cartas-y-grafica'>
       <div className='cartas-y-calidad-aire'>
@@ -118,8 +112,7 @@ export const Pronostico = () => {
       <div className='contenedor-grafica'>
         <div className='paisaje-fondo'>
           <img 
-          src="https://media.nbcsandiego.com/2019/09/sky-sunny-clouds-cloudy-3768.jpg?quality=85&strip=all&resize=1200%2C675"
-          // src={background}
+          src={background}
           alt="paisaje" 
           />
           {
@@ -133,7 +126,7 @@ export const Pronostico = () => {
             )
           }
           {
-            description.includes('storm') && (
+            description.includes('storm') || description.includes('thunderstorm') && (
               <WeatherEffect weatherType='storm' />
             )
           }

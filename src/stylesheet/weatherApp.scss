@@ -14,14 +14,10 @@ body {
 }
 
 .App {
-  background-color: rgb(15, 15, 15);
-  background-color: --bs-body-color;
-  background-color: #0B0C10;
-
-  background: rgb(12,12,14);
   background: linear-gradient(90deg, rgba(12,12,14,1) 0%, rgba(19,21,24,1) 46%, rgba(35,43,47,1) 100%);
   
   color: white;
+
   min-height: 100vh;
 }
 
@@ -59,18 +55,11 @@ body {
       flex-direction: column;
       width: 150px;
       color: black;
-      box-shadow: inset 2px 4px 6px black;
-      box-shadow: inset 0 2px 1px black;
+      border: 1px solid rgb(128, 128, 128, .5);
       height: 60%;
-  
-      // background: rgb(12,12,14);
-      // background: linear-gradient(90deg, rgba(12,12,14,1) 0%, rgba(24,26,27,1) 100%);
-
       background-color: #17181E;
-    // border: 1px solid rgb(128, 128, 128, .5);
       i {
         font-size: 1.5rem;
-        color: white;
         color: gray;
       }
 
@@ -105,13 +94,11 @@ body {
     align-items: end;
     grid-column: 1/4;
     grid-row: 1/2;
-    // background-color: #121236;
-    // background-color: #040416;
+    border: 1px solid rgb(128, 128, 128, .5);
 
-    background-color: #382506;
+    // background-color: #382506;
     
-    // background-color: #0F0B03;
-    box-shadow: inset 2px 4px 6px black;
+    // box-shadow: inset 2px 4px 6px black;
     color: #E0E1D1;
   }
 
@@ -226,19 +213,19 @@ body {
   // overflow: hidden;
 }
 
-@keyframes lluvia {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
-}
+// @keyframes lluvia {
+//   0% { transform: translateY(0); }
+//   100% { transform: translateY(100vh); }
+// }
 
-.gota {
-  position: absolute;
-  width: 2px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  top: -10px;
-  animation: lluvia 1s infinite linear;
-}
+// .gota {
+//   position: absolute;
+//   width: 2px;
+//   height: 10px;
+//   background: rgba(255, 255, 255, 0.5);
+//   top: -10px;
+//   animation: lluvia 1s infinite linear;
+// }
 
 .font-google {
   font-family: "Basic", sans-serif;
@@ -247,10 +234,10 @@ body {
 }
 
 .font-google-delgada {
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .descripcion {
